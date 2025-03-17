@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Sourav Oyaj - Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        #menu-toggle:checked ~ .mobile-menu {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Fixed Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">Mr. Sourav</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">About</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Projects</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Mobile Menu Toggle -->
+                    <label for="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="bi bi-list text-xl text-gray-800 dark:text-white"></i>
+                    </label>
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="bi bi-moon inline-block dark:hidden text-gray-800 dark:text-white"></i>
+                        <i class="bi bi-sun hidden dark:inline-block text-gray-800 dark:text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        <div class="mobile-menu md:hidden bg-white dark:bg-gray-800">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-800 dark:text-white">Home</a>
+                <a href="#about" class="block py-2 text-gray-800 dark:text-white">About</a>
+                <a href="#projects" class="block py-2 text-gray-800 dark:text-white">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-800 dark:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-16 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <img src="pic2.jpg" alt="Profile" class="w-48 h-48 rounded-full object-cover shadow-lg">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-2">Md Sourav Oyaj</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">Web & App Developer</p>
+                    <div class="flex flex-col space-y-2">
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <i class="bi bi-geo-alt text-gray-600 dark:text-gray-300"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Akbarshah, Chittagong</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <i class="bi bi-envelope text-gray-600 dark:text-gray-300"></i>
+                            <span class="text-gray-600 dark:text-gray-300">abhimd2023@gmail.com</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <i class="bi bi-phone text-gray-600 dark:text-gray-300"></i>
+                            <span class="text-gray-600 dark:text-gray-300">+8801601040624</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex space-x-4 justify-center md:justify-start">
+                        <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                            <i class="bi bi-linkedin text-gray-800 dark:text-white"></i>
+                        </a>
+                        <a href="https://github.com/mr-captrox" target="_blank" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                            <i class="bi bi-github text-gray-800 dark:text-white"></i>
+                        </a>
+                        <a href="https://x.com/mr_captrox" target="_blank" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                            <i class="bi bi-twitter text-gray-800 dark:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">My Journey in Tech</h2>
+            <div class="text-gray-600 dark:text-gray-300 max-w-4xl mx-auto space-y-4">
+                <p class="text-center mb-6">
+                    🚀 From scoring GPA 4.39 in SSC (2018) at MRM High School to achieving GPA 4.42 in HSC (2020), 
+                    I've always been driven by curiosity and precision. Currently pursuing my BSc in Computer Science 
+                    at International Islamic University Chittagong (IIUC) since 2022, I'm now navigating the exciting 
+                    challenges of my 5th semester.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">📚 Education & Training</h3>
+                        <p class="mb-3">
+                            My university journey has equipped me with hands-on experience in modern web technologies 
+                            including HTML5, CSS3, JavaScript, Bootstrap, and Tailwind CSS. I've also deepened my 
+                            understanding of UI/UX principles and full-stack development fundamentals.
+                        </p>
+                        <p>
+                            Complementing my formal education, I completed intensive web development courses from 
+                            CodeWithHarry in 2022, which helped me bridge theory with practical implementation.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">💻 Development Experience</h3>
+                        <p class="mb-3">
+                            Over the past 3 years, I've crafted responsive websites and web applications using modern 
+                            frameworks, while simultaneously exploring mobile app development. My projects emphasize 
+                            clean code, user-centric design, and cross-browser compatibility.
+                        </p>
+                        <p>
+                            Constantly experimenting with new technologies, I enjoy transforming complex problems 
+                            into elegant digital solutions. My current focus is mastering full-stack development 
+                            while maintaining strong UI/UX sensibilities.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-center mt-8 italic">
+                    "Every line of code I write is a step towards solving real-world problems through technology. 
+                    When I'm not debugging code, you'll find me exploring new design trends or contributing to 
+                    open-source projects."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+                <i class="bi bi-code-square mr-2"></i>My Projects
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Note App -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Note App</h3>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Android App</span>
+                        </div>
+                        <img src="images/note-app.jpg" alt="Note App Interface" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Feature-rich note-taking Android application with secure authentication, 
+                            cloud sync, and cross-device compatibility. Prioritizes user privacy 
+                            with encrypted storage solutions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Java</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Firebase</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">XML</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">APK</span>
+                        </div>
+                        <a href="https://github.com/mr-captrox/Note-app" target="_blank" 
+                           class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-800 rounded-md hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
+                            <i class="bi bi-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RoktoSetu -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">RoktoSetu</h3>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Web Platform</span>
+                        </div>
+                        <img src="images/b.png" alt="RoktoSetu Interface" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Life-saving blood donation network connecting donors with hospitals through 
+                            real-time inventory management and automated request system.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">HTML/CSS</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">JavaScript</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">MySQL</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Apache</span>
+                        </div>
+                        <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank" 
+                           class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-800 rounded-md hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
+                            <i class="bi bi-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Portfolio Website</h3>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Web Design</span>
+                        </div>
+                        <img src="images/p.png" alt="Portfolio Screenshot" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Modern responsive portfolio showcasing technical skills and projects, 
+                            featuring dark mode toggle and interactive elements.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">HTML</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">CSS</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">JavaScript</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Tailwind</span>
+                        </div>
+                        <a href="https://github.com/mr-captrox/portfolio" target="_blank" 
+                           class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-800 rounded-md hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
+                            <i class="bi bi-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Weather App -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Weather App</h3>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Android</span>
+                        </div>
+                        <img src="images/weather-app.jpg" alt="Weather App Interface" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Real-time weather forecasting application with GPS integration, 
+                            pollution monitoring, and smart weather alerts.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Java</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">OpenWeather API</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">Firebase</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm">XML</span>
+                        </div>
+                        <a href="https://github.com/mr-captrox/Weather-App" target="_blank" 
+                           class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-800 rounded-md hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
+                            <i class="bi bi-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Contact Me</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center">
+                        <i class="bi bi-envelope mr-2"></i>
+                        Send Me a Message
+                    </h3>
+                    
+                    <form action="https://formspree.io/f/xanqgyov" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                                Your Name
+                            </label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
+                                          dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 
+                                          focus:border-transparent transition-all"
+                                   placeholder="Sourav">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                                Your Email
+                            </label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
+                                          dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 
+                                          focus:border-transparent transition-all"
+                                   placeholder="sourav@example.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                                Message
+                            </label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
+                                             dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 
+                                             focus:border-transparent transition-all"
+                                      placeholder="Your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg 
+                                       transition-all duration-200 flex items-center justify-center">
+                            <i class="bi bi-send mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 dark:bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Md Sourav Oyaj. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode initialization and toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const html = document.documentElement;
+    
+        // Initialize from localStorage and set correct icon
+        function initializeDarkMode() {
+            const isDark = localStorage.getItem('darkMode') === 'true';
+            html.classList.toggle('dark', isDark);
+        }
+        initializeDarkMode();
+    
+        // Toggle functionality
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        });
+    
+        // Mobile menu close on click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>
