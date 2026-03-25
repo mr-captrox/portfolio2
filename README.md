@@ -1,6 +1,6 @@
 # Md Sourav Oyaj - Personal Portfolio
 
-A premium, interactive, and modern portfolio website featuring a dark/neon aesthetic, built with high-performance animations and responsive architecture.
+A premium, interactive, and modern portfolio website featuring a dark/neon aesthetic, focusing on AI/ML Engineering and intelligent full-stack development.
 
 
 ## 🚀 Live Demo
@@ -32,7 +32,7 @@ Check out the live site here: [https://mr-captrox.github.io/portfolio2/](https:/
 - `README.md`: Documentation (you are here).
 
 ## 👨‍💻 About Me
-I am a B.Sc. in Computer Science and Engineering student at **International Islamic University Chittagong (IIUC)** and a passionate Web & App developer. I specialize in building scalable web solutions with a focus on AI/ML and modern UI/UX design.
+I am an **Aspiring AI/ML Engineer** and Computer Science student at **International Islamic University Chittagong (IIUC)**. I specialize in building intelligent systems with a focus on Deep Learning, Research, and seamless AI integration into modern applications.
 
 ---
 © 2025 Md Sourav Oyaj. Built with ❤️ and Code.
