@@ -113,6 +113,20 @@
             .sidebar.open {
                 transform: translateX(0);
             }
+
+            .orbitron {
+                font-family: 'Orbitron', sans-serif !important;
+            }
+
+            .glass-card {
+                background: rgba(17, 24, 39, 0.4);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 0, 85, 0.1);
+            }
+
+            .shadow-neon {
+                box-shadow: 0 0 20px rgba(255, 0, 85, 0.2);
+            }
         }
     </style>
 </head>
@@ -139,6 +153,10 @@
             <a href="#services" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-code-alt text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Services</span>
+            </a>
+            <a href="#research" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
+                <i class='bx bx-brain text-2xl'></i>
+                <span class="hidden md:inline font-semibold">Research</span>
             </a>
             <a href="#projects" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-briefcase text-2xl'></i>
@@ -202,14 +220,14 @@
             <div class="container mx-auto max-w-5xl">
                 <div class="flex flex-col md:flex-row gap-16 items-start">
                     <div class="w-full md:w-1/3" data-aos="fade-up">
-                        <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                        <h3 class="text-3xl font-bold mb-6 flex items-center gap-3 orbitron">
                             <i class='bx bx-user neon-text'></i> About Me
                         </h3>
                         <div class="space-y-4 text-gray-400">
                             <p>Currently pursuing a <span class="text-white">B.Sc. in Computer Science and
                                     Engineering</span> at International Islamic University Chittagong (IIUC).</p>
                             <p>My journey is fueled by a passion for solving complex problems through AI, web
-                                technologies, and mobile development.</p>
+                                technologies, and research.</p>
                         </div>
                     </div>
 
@@ -253,6 +271,18 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- GitHub Real-time Stats -->
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8" data-aos="fade-up">
+                    <div class="glass-card p-6 rounded-3xl neon-border overflow-hidden flex justify-center items-center">
+                        <img src="https://github-readme-stats.vercel.app/api?username=mr-captrox&show_icons=true&theme=radical&hide_border=true&bg_color=0b111e"
+                            alt="GitHub Stats" class="max-w-full">
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl neon-border overflow-hidden flex justify-center items-center">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mr-captrox&layout=compact&theme=radical&hide_border=true&bg_color=0b111e"
+                            alt="Top Languages" class="max-w-full">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -261,36 +291,93 @@
         <!-- Services Section -->
         <section id="services" class="py-24 px-8">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
-                    <span class="neon-text font-mono">01.</span> Services
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">01.</span> Specializations
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-8 bg-sidebar/40 rounded-2xl neon-border text-center group" data-aos="zoom-in">
-                        <i
-                            class='bx bx-laptop text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Web Design</h4>
-                        <p class="text-sm text-gray-400">Crafting beautiful, modern interfaces with Tailwind CSS.</p>
+                    <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in">
+                        <i class='bx bxs-brain text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2">Deep Learning</h4>
+                        <p class="text-sm text-gray-400">Neural network architectures, CV, and model optimization.</p>
                     </div>
-                    <div class="p-8 bg-sidebar/40 rounded-2xl neon-border text-center group" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <i
-                            class='bx bx-code-block text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Web Development</h4>
-                        <p class="text-sm text-gray-400">Robust frontend & backend logic using latest frameworks.</p>
+                    <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="100">
+                        <i class='bx bx-message-square-detail text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2">NLP & RAG</h4>
+                        <p class="text-sm text-gray-400">Large Language Models and intelligent document retrieval.</p>
                     </div>
-                    <div class="p-8 bg-sidebar/40 rounded-2xl neon-border text-center group" data-aos="zoom-in"
-                        data-aos-delay="200">
-                        <i
-                            class='bx bx-mobile-alt text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Android Dev</h4>
-                        <p class="text-sm text-gray-400">Mobile solutions focusing on performance & UX.</p>
+                    <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="200">
+                        <i class='bx bx-analyse text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2">Data Science</h4>
+                        <p class="text-sm text-gray-400">Advanced ETL, pattern recognition, and predictive analytics.</p>
                     </div>
-                    <div class="p-8 bg-sidebar/40 rounded-2xl neon-border text-center group" data-aos="zoom-in"
-                        data-aos-delay="300">
-                        <i
-                            class='bx bx-data text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Database Mgmt</h4>
-                        <p class="text-sm text-gray-400">Efficient data storage with MySQL and Firebase.</p>
+                    <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="300">
+                        <i class='bx bx-layer text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2">AI Frameworks</h4>
+                        <p class="text-sm text-gray-400">Production-ready AI integration using FastAPI/Python.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-24 px-8 bg-black/20">
+            <div class="container mx-auto max-w-5xl">
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">02.</span> Research & Blog
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Research Card 1 -->
+                    <div class="p-8 glass-card rounded-2xl neon-border flex items-start gap-6 group" data-aos="fade-right">
+                        <div class="text-neon text-4xl pt-1"><i class='bx bx-bolt-circle'></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2 group-hover:text-neon transition-colors">Neural Network Optimization</h4>
+                            <p class="text-sm text-gray-400">Techniques for reducing latency in high-performance model architectures.</p>
+                            <a href="#" class="inline-block mt-4 text-xs text-neon hover:underline">Read Case Study →</a>
+                        </div>
+                    </div>
+                    <!-- Research Card 2 -->
+                    <div class="p-8 glass-card rounded-2xl neon-border flex items-start gap-6 group" data-aos="fade-left">
+                        <div class="text-neon text-4xl pt-1"><i class='bx bx-search-alt-2'></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2 group-hover:text-neon transition-colors">RAG System Efficiencies</h4>
+                            <p class="text-sm text-gray-400">Implementing low-rank adaptation on vector storage for LLM retrieval.</p>
+                            <a href="#" class="inline-block mt-4 text-xs text-neon hover:underline">Read Case Study →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="py-24 px-8 bg-black/20">
+            <div class="container mx-auto max-w-5xl">
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">03.</span> AI/ML Tech Stack
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in">
+                        <i class='bx bxl-python text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">Python</span>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="50">
+                        <i class='bx bxl-pytorch text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">PyTorch</span>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="100">
+                        <i class='bx bxl-tensorflow text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">TensorFlow</span>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="150">
+                        <i class='bx bx-data text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">Pandas</span>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="200">
+                        <i class='bx bxs-flask text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">FastAPI</span>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="250">
+                        <i class='bx bxl-git text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <span class="text-xs font-mono">Git/VC</span>
                     </div>
                 </div>
             </div>
@@ -299,8 +386,8 @@
         <!-- CP Section -->
         <section id="cp" class="py-24 px-8 bg-black/20">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
-                    <span class="neon-text font-mono">02.</span> Competitive Programming
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">04.</span> Competitive Programming
                 </h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-6 bg-sidebar/40 rounded-2xl neon-border flex flex-col items-center gap-4"
@@ -334,8 +421,8 @@
         <!-- Projects Section -->
         <section id="projects" class="py-24 px-8">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
-                    <span class="neon-text font-mono">03.</span> Latest Projects
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">06.</span> Latest Projects
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -367,11 +454,12 @@
                             </div>
                             <div class="flex items-center gap-4">
                                 <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
+                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    <i class='bx bx-play-circle mr-1'></i> View Demo
+                                </a>
+                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
                                     class="text-gray-400 hover:text-neon text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-neon text-2xl transition-colors">
-                                    <i class='bx bx-link-external'></i>
                                 </a>
                             </div>
                         </div>
@@ -395,6 +483,10 @@
                             <p class="text-gray-400 text-sm mb-6">Secure note-taking Android application with cloud sync
                                 and user privacy focus.</p>
                             <div class="flex items-center gap-4">
+                                <a href="https://github.com/mr-captrox/Note-app" target="_blank"
+                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    Case Study
+                                </a>
                                 <a href="https://github.com/mr-captrox/Note-app" target="_blank"
                                     class="text-gray-400 hover:text-neon text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
@@ -422,6 +514,10 @@
                                 hospitals in real-time.</p>
                             <div class="flex items-center gap-4">
                                 <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
+                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    Case Study
+                                </a>
+                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
                                     class="text-gray-400 hover:text-neon text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
@@ -439,10 +535,51 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24 px-8 bg-black/20">
+            <div class="container mx-auto max-w-5xl">
+                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
+                    <span class="neon-text font-mono">04.</span> Professional Endorsements
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 glass-card rounded-3xl neon-border relative group" data-aos="fade-up">
+                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-neon/20'></i>
+                        <p class="text-gray-400 italic mb-6 leading-relaxed">
+                            "Md Sourav's dedication to deep learning research and his ability to architect complex AI pipelines is truly remarkable. His work on RAG systems is state-of-the-art."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center text-neon border border-neon/30">
+                                <i class='bx bxs-user-voice text-2xl'></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white">Project Supervisor</h5>
+                                <p class="text-xs text-neon font-mono">Dept. of CSE, IIUC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 glass-card rounded-3xl neon-border relative group" data-aos="fade-up" data-aos-delay="100">
+                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-neon/20'></i>
+                        <p class="text-gray-400 italic mb-6 leading-relaxed">
+                            "A highly skilled developer with a keen eye for modern aesthetics and efficient code. His performance in the EDGE project was exceptional."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center text-neon border border-neon/30">
+                                <i class='bx bxs-medal text-2xl'></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white">EDGE Mentor</h5>
+                                <p class="text-xs text-neon font-mono">CUET/BCC Professional Training</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-24 px-8 bg-black/20">
             <div class="container mx-auto max-w-3xl">
-                <h3 class="text-3xl font-bold mb-4 text-center" data-aos="fade-up">Get In Touch</h3>
+                <h3 class="text-3xl font-bold mb-4 text-center orbitron" data-aos="fade-up">Get In Touch</h3>
                 <p class="text-gray-400 text-center mb-12" data-aos="fade-up">I'm currently looking for new
                     opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
 
