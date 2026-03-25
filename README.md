@@ -1,14 +1,13 @@
-# Md Sourav Oyaj - Personal Portfolio (Nihal Morshed Style)
+# Md Sourav Oyaj - Personal Portfolio
 
 A premium, interactive, and modern portfolio website featuring a dark/neon aesthetic, built with high-performance animations and responsive architecture.
 
-![Portfolio Preview](images/s1.jpg)
 
 ## 🚀 Live Demo
 Check out the live site here: [https://mr-captrox.github.io/portfolio2/](https://mr-captrox.github.io/portfolio2/)
 
 ## ✨ Key Enhancements
-- **Aesthetic**: Premium Neon/Dark theme (`#0b111e` with `#ff0055` accents) inspired by the Nihal Morshed reference.
+- **Aesthetic**: Premium Neon/Dark theme (`#0b111e` with `#ff0055` accents) for a modern look.
 - **Navigation**: Fixed vertical sidebar with integrated active link tracking and mobile-responsive toggle.
 - **Interactive Elements**:
     - **Typed.js**: Multi-role cycling effect in the hero section.
