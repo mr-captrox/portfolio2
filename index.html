@@ -64,10 +64,28 @@
             text-shadow: 0 0 5px rgba(255, 0, 85, 0.3);
         }
 
+        .sidebar-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         .sidebar-link.active {
             color: var(--neon-color);
-            border-right: 3px solid var(--neon-color);
-            background: rgba(255, 0, 85, 0.05);
+            background: rgba(255, 0, 85, 0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .sidebar-link.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
+            background: var(--neon-color);
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 0 10px var(--neon-color);
         }
 
         .timeline-dot::before {
@@ -97,38 +115,37 @@
 
 <body class="bg-[#0b111e] text-white font-poppins selection:bg-neon selection:text-white">
     <!-- Sidebar -->
-    <nav class="sidebar fixed top-0 left-0 h-full w-20 md:w-64 bg-sidebar border-r border-neon/20 z-[100] flex flex-col items-center py-8">
-        <div class="mb-12">
-            <a href="#home" class="text-3xl font-bold neon-text font-mono">MS.</a>
+    <nav class="sidebar fixed top-0 left-0 h-full w-20 md:w-64 bg-sidebar/95 backdrop-blur-md border-r border-neon/20 z-[100] flex flex-col items-center py-10">
+        <div class="mb-16">
+            <a href="#home" class="text-4xl font-black neon-text font-mono tracking-tighter hover:scale-110 transition-transform inline-block">MS.</a>
         </div>
         
-        <div class="flex-1 flex flex-col gap-6 items-center md:items-stretch w-full px-4">
-            <a href="#home" class="sidebar-link active flex items-center gap-4 py-3 px-4 rounded-lg transition-all hover:text-neon">
+        <div class="flex-1 flex flex-col gap-4 items-center md:items-stretch w-full px-4">
+            <a href="#home" class="sidebar-link active flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-home-alt text-2xl'></i>
-                <span class="hidden md:inline font-medium">Home</span>
+                <span class="hidden md:inline font-semibold">Home</span>
             </a>
-            <a href="#about" class="sidebar-link flex items-center gap-4 py-3 px-4 rounded-lg transition-all hover:text-neon">
+            <a href="#about" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-user text-2xl'></i>
-                <span class="hidden md:inline font-medium">About</span>
+                <span class="hidden md:inline font-semibold">About</span>
             </a>
-            <a href="#services" class="sidebar-link flex items-center gap-4 py-3 px-4 rounded-lg transition-all hover:text-neon">
+            <a href="#services" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-code-alt text-2xl'></i>
-                <span class="hidden md:inline font-medium">Services</span>
+                <span class="hidden md:inline font-semibold">Services</span>
             </a>
-            <a href="#projects" class="sidebar-link flex items-center gap-4 py-3 px-4 rounded-lg transition-all hover:text-neon">
+            <a href="#projects" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-briefcase text-2xl'></i>
-                <span class="hidden md:inline font-medium">Work</span>
+                <span class="hidden md:inline font-semibold">Work</span>
             </a>
-            <a href="#contact" class="sidebar-link flex items-center gap-4 py-3 px-4 rounded-lg transition-all hover:text-neon">
+            <a href="#contact" class="sidebar-link flex items-center gap-4 py-4 px-6 rounded-xl text-gray-400">
                 <i class='bx bx-envelope text-2xl'></i>
-                <span class="hidden md:inline font-medium">Contact</span>
+                <span class="hidden md:inline font-semibold">Contact</span>
             </a>
         </div>
 
-        <div class="mt-auto flex flex-col gap-4 text-gray-400 text-xl">
-            <a href="https://github.com/mr-captrox" target="_blank" class="hover:text-neon transition-colors"><i class='bx bxl-github'></i></a>
-            <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank" class="hover:text-neon transition-colors"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://x.com/mr_captrox" target="_blank" class="hover:text-neon transition-colors"><i class='bx bxl-twitter'></i></a>
+        <div class="mt-auto pt-8 border-t border-neon/10 w-full flex justify-center gap-6 text-gray-500 text-2xl">
+            <a href="https://github.com/mr-captrox" target="_blank" class="hover:text-neon transition-all hover:scale-125"><i class='bx bxl-github'></i></a>
+            <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank" class="hover:text-neon transition-all hover:scale-125"><i class='bx bxl-linkedin'></i></a>
         </div>
     </nav>
 
