@@ -1,4 +1,4 @@
-# Md Sourav Oyaj - Personal Portfolio
+# CAPTROX - Personal Portfolio
 
 A premium, interactive, and modern portfolio website featuring a dark/neon aesthetic, focusing on AI/ML Engineering and intelligent full-stack development.
 
