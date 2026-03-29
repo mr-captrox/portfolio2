@@ -17,22 +17,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@800&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        neon: "#00d4ff",
-                        ocean: "#0077b6",
-                        darken: "#020c1b",
-                        sidebar: "#051524"
+                        sky:  "#38BDF8",
+                        ocean: "#0EA5E9",
+                        ink:  "#0C3547",
+                        mist: "#4A8FA8",
+                        frost: "#BAE6FD"
                     },
                     fontFamily: {
+                        display: ['Bebas Neue', 'sans-serif'],
                         poppins: ['Poppins', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
@@ -43,182 +44,202 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
     <style>
         :root {
-            --neon-color: #00d4ff;
-            --ocean-mid: #0077b6;
-            --ocean-deep: #023e8a;
-            --dark-bg: #020c1b;
-            --glass-bg: rgba(2, 20, 48, 0.55);
-            --glass-border: rgba(0, 212, 255, 0.18);
+            --accent: #0EA5E9;
+            --accent-light: #38BDF8;
+            --accent-pale: #BAE6FD;
+            --ink: #0C3547;
+            --mist: #4A8FA8;
+            --glass-bg: rgba(255,255,255,0.45);
+            --glass-border: rgba(255,255,255,0.6);
+            --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.85);
         }
 
         * { box-sizing: border-box; }
 
         body {
-            background: var(--dark-bg);
-            color: #e0f7fa;
+            background: linear-gradient(135deg, #EFF9FF 0%, #DBEAFE 40%, #E0F2FE 70%, #F0F9FF 100%);
+            color: var(--ink);
             scroll-behavior: smooth;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* ── Animated ocean background ── */
+        /* ── Animated light blob background ── */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             z-index: -2;
             background:
-                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,119,182,0.35) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(0,212,255,0.18) 0%, transparent 65%),
-                radial-gradient(ellipse 100% 80% at 50% 50%, rgba(2,62,138,0.22) 0%, transparent 80%),
-                linear-gradient(160deg, #020c1b 0%, #021d3a 40%, #010f24 100%);
-            animation: oceanShift 18s ease-in-out infinite alternate;
+                radial-gradient(ellipse 70% 55% at 15% 10%, rgba(56,189,248,0.18) 0%, transparent 65%),
+                radial-gradient(ellipse 55% 50% at 85% 80%, rgba(186,230,253,0.22) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56,189,248,0.10) 0%, transparent 70%),
+                linear-gradient(135deg, #EFF9FF 0%, #DBEAFE 40%, #E0F2FE 70%, #F0F9FF 100%);
+            animation: blobDrift 22s ease-in-out infinite alternate;
         }
-        @keyframes oceanShift {
-            0%   { filter: hue-rotate(0deg) brightness(1); }
-            50%  { filter: hue-rotate(12deg) brightness(1.06); }
-            100% { filter: hue-rotate(-8deg) brightness(0.96); }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 40% 35% at 70% 20%, rgba(186,230,253,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 30% 75%, rgba(56,189,248,0.12) 0%, transparent 55%);
+            animation: blobDrift2 28s ease-in-out infinite alternate;
+        }
+        @keyframes blobDrift {
+            0%   { transform: scale(1) translate(0,0); }
+            50%  { transform: scale(1.04) translate(12px,-8px); }
+            100% { transform: scale(0.97) translate(-10px,10px); }
+        }
+        @keyframes blobDrift2 {
+            0%   { transform: scale(1) translate(0,0); }
+            50%  { transform: scale(1.06) translate(-15px,10px); }
+            100% { transform: scale(0.98) translate(8px,-12px); }
         }
 
         /* ── Bubble particles ── */
-        .bubbles { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+        .bubbles { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
         .bubble {
             position: absolute;
             bottom: -80px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, rgba(0,212,255,0.35), rgba(0,119,182,0.08));
-            border: 1px solid rgba(0,212,255,0.2);
+            background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(186,230,253,0.2));
+            border: 1px solid rgba(255,255,255,0.65);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
             animation: rise linear infinite;
         }
         @keyframes rise {
-            0%   { transform: translateY(0) scale(1); opacity: 0.7; }
-            100% { transform: translateY(-110vh) scale(1.15); opacity: 0; }
+            0%   { transform: translateY(0) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
         }
 
-        /* ── Glassmorphism ── */
+        /* ── iOS 26 Liquid Glass Cards ── */
         .glass-card {
-            background: rgba(2, 28, 58, 0.45);
-            backdrop-filter: blur(18px) saturate(160%);
-            -webkit-backdrop-filter: blur(18px) saturate(160%);
-            border: 1px solid rgba(0,212,255,0.15);
+            background: rgba(255,255,255,0.42);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.62);
+            border-radius: 24px;
+            box-shadow: var(--glass-highlight), 0 4px 24px rgba(14,165,233,0.08);
             transition: all 0.35s ease;
         }
         .glass-card:hover {
-            background: rgba(0, 119, 182, 0.25);
-            border-color: rgba(0,212,255,0.4);
-            box-shadow: 0 8px 40px rgba(0,212,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.58);
+            border-color: rgba(56,189,248,0.45);
+            box-shadow: var(--glass-highlight), 0 12px 40px rgba(14,165,233,0.15);
             transform: translateY(-3px);
         }
 
-        /* ── Neon / Ocean accent ── */
+        /* ── Borders ── */
         .neon-border {
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.55);
             transition: all 0.3s ease;
         }
         .neon-border:hover {
-            border-color: var(--neon-color);
-            box-shadow: 0 0 18px rgba(0,212,255,0.3), inset 0 0 8px rgba(0,212,255,0.05);
+            border-color: rgba(56,189,248,0.5);
+            box-shadow: 0 0 18px rgba(14,165,233,0.12);
         }
 
-        .neon-text {
-            color: var(--neon-color);
-            text-shadow: 0 0 12px rgba(0,212,255,0.5);
+        /* ── Accent text ── */
+        .accent-text {
+            color: var(--accent);
         }
+
+        /* ── Display font ── */
+        .display-font { font-family: 'Bebas Neue', sans-serif !important; letter-spacing: 0.04em; }
+        .orbitron { font-family: 'Bebas Neue', sans-serif !important; letter-spacing: 0.05em; }
 
         /* ── Sidebar ── */
         .sidebar {
-            background: rgba(2, 18, 40, 0.72) !important;
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-right: 1px solid rgba(0,212,255,0.12) !important;
+            background: rgba(240,248,255,0.68) !important;
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border-right: 1px solid rgba(255,255,255,0.72) !important;
+            box-shadow: 4px 0 24px rgba(14,165,233,0.06);
         }
-
         .sidebar-link {
             position: relative;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            color: rgba(176,224,240,0.6);
+            color: var(--mist);
             border-radius: 12px;
         }
         .sidebar-link:hover {
-            color: var(--neon-color);
-            background: rgba(0,212,255,0.08);
+            color: var(--accent);
+            background: rgba(56,189,248,0.08);
         }
         .sidebar-link.active {
-            color: var(--neon-color);
-            background: rgba(0, 212, 255, 0.1);
-            backdrop-filter: blur(4px);
+            color: var(--accent);
+            background: rgba(56,189,248,0.12);
         }
         .sidebar-link.active::before {
             content: "";
             position: absolute;
-            left: 0;
-            top: 50%;
+            left: 0; top: 50%;
             transform: translateY(-50%);
-            width: 4px;
-            height: 60%;
-            background: linear-gradient(to bottom, #00d4ff, #0077b6);
+            width: 4px; height: 60%;
+            background: linear-gradient(to bottom, #38BDF8, #0284C7);
             border-radius: 0 4px 4px 0;
-            box-shadow: 0 0 12px var(--neon-color);
+            box-shadow: 0 0 8px rgba(56,189,248,0.4);
         }
 
         /* ── Timeline ── */
         .timeline-dot::before {
             content: "";
             position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 18px;
-            height: 18px;
-            background: var(--neon-color);
+            left: -9px; top: 5px;
+            width: 18px; height: 18px;
+            background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--neon-color);
+            box-shadow: 0 0 8px rgba(14,165,233,0.3);
         }
 
         /* ── Inputs ── */
         input, textarea {
-            background: rgba(0,30,60,0.5) !important;
-            border: 1px solid rgba(0,212,255,0.2) !important;
-            color: #e0f7fa !important;
-            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.55) !important;
+            border: 1px solid rgba(56,189,248,0.3) !important;
+            color: var(--ink) !important;
+            backdrop-filter: blur(12px);
             transition: all 0.3s ease;
+            border-radius: 12px;
         }
         input:focus, textarea:focus {
-            border-color: var(--neon-color) !important;
-            box-shadow: 0 0 0 3px rgba(0,212,255,0.12) !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(56,189,248,0.15) !important;
+            outline: none;
         }
-        input::placeholder, textarea::placeholder { color: rgba(176,224,240,0.35) !important; }
+        input::placeholder, textarea::placeholder { color: var(--mist) !important; opacity: 0.7; }
 
-        /* ── Pulse ring on profile ── */
-        @keyframes oceanPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.4), 0 0 0 0 rgba(0,119,182,0.2); }
-            50% { box-shadow: 0 0 0 16px rgba(0,212,255,0.0), 0 0 0 32px rgba(0,119,182,0.0); }
+        /* ── Profile ring ── */
+        @keyframes glassPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0.3), inset 0 1px 0 rgba(255,255,255,0.8); }
+            50%       { box-shadow: 0 0 0 14px rgba(56,189,248,0.0), inset 0 1px 0 rgba(255,255,255,0.8); }
         }
-        .profile-pulse { animation: oceanPulse 3s ease-out infinite; }
+        .profile-pulse { animation: glassPulse 3.5s ease-out infinite; }
 
-        /* ── Scroll-to-top button ── */
+        /* ── Scroll-to-top ── */
         #scroll-to-top {
-            background: linear-gradient(135deg, #0077b6, #00d4ff) !important;
-            box-shadow: 0 4px 20px rgba(0,212,255,0.35) !important;
+            background: linear-gradient(135deg, #38BDF8, #0EA5E9) !important;
+            box-shadow: 0 4px 20px rgba(14,165,233,0.35) !important;
+            color: white !important;
         }
         #scroll-to-top:hover {
-            box-shadow: 0 6px 30px rgba(0,212,255,0.55) !important;
+            box-shadow: 0 6px 28px rgba(14,165,233,0.5) !important;
         }
 
-        /* ── Orbitron titles ── */
-        .orbitron { font-family: 'Orbitron', sans-serif !important; }
+        /* ── Section alternating bg ── */
+        .section-alt { background: rgba(255,255,255,0.22); }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
             .sidebar.open { transform: translateX(0); }
         }
     </style>
 </head>
 
-<body class="bg-[#020c1b] text-[#e0f7fa] font-poppins selection:bg-neon selection:text-white">
+<body class="font-poppins selection:bg-sky selection:text-white">
     <!-- Ocean bubble particles -->
     <div class="bubbles" id="bubbles-container"></div>
 
@@ -232,73 +253,73 @@
         </div>
 
         <div class="flex-1 flex flex-col gap-2 items-center md:items-stretch w-full px-4">
-            <a href="#home" class="sidebar-link active flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#home" class="sidebar-link active flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-home-alt text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Home</span>
             </a>
-            <a href="#about" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#about" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-user text-2xl'></i>
                 <span class="hidden md:inline font-semibold">About</span>
             </a>
-            <a href="#services" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#services" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-code-alt text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Services</span>
             </a>
-            <a href="#research" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#research" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-brain text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Research</span>
             </a>
-            <a href="#projects" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#projects" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-briefcase text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Work</span>
             </a>
-            <a href="#contact" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl text-gray-400">
+            <a href="#contact" class="sidebar-link flex items-center gap-4 py-3 px-6 rounded-xl">
                 <i class='bx bx-envelope text-2xl'></i>
                 <span class="hidden md:inline font-semibold">Contact</span>
             </a>
         </div>
 
-        <div class="mt-auto pt-8 w-full flex justify-center gap-6 text-2xl" style="border-top: 1px solid rgba(0,212,255,0.1); color: rgba(0,212,255,0.5);">
+        <div class="mt-auto pt-8 w-full flex justify-center gap-6 text-2xl" style="border-top: 1px solid rgba(56,189,248,0.2); color: var(--mist);">
             <a href="https://github.com/mr-captrox" target="_blank"
-                class="hover:text-neon transition-all hover:scale-125"><i class='bx bxl-github'></i></a>
+                class="hover:text-ocean transition-all hover:scale-125"><i class='bx bxl-github'></i></a>
             <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank"
-                class="hover:text-neon transition-all hover:scale-125"><i class='bx bxl-linkedin'></i></a>
+                class="hover:text-ocean transition-all hover:scale-125"><i class='bx bxl-linkedin'></i></a>
         </div>
     </nav>
 
     <!-- Mobile Menu Toggle -->
-    <button id="mobile-toggle" class="md:hidden fixed top-6 right-6 z-[101] p-3 rounded-full shadow-lg" style="background: linear-gradient(135deg,#0077b6,#00d4ff); box-shadow:0 4px 20px rgba(0,212,255,0.4);">
+    <button id="mobile-toggle" class="md:hidden fixed top-6 right-6 z-[101] p-3 rounded-full shadow-lg text-white" style="background: linear-gradient(135deg, #38BDF8, #0EA5E9); box-shadow: 0 4px 20px rgba(14,165,233,0.35);">
         <i class='bx bx-menu text-2xl'></i>
     </button>
     <!-- Main Content -->
     <main class="ml-20 md:ml-60 min-h-screen">
         <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-neon/10 via-ocean/5 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-sky/10 via-white/5 to-transparent"></div>
             <div class="container relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="max-w-xl text-center md:text-left" data-aos="fade-right">
-                    <h4 class="font-mono neon-text mb-4 text-lg">Hello, I'm</h4>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4">Md Sourav <span class="neon-text">Oyaj</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-medium text-gray-400 mb-6">
-                        I am a <span id="typed" class="text-white"></span>
+                    <h4 class="font-mono accent-text mb-4 text-lg tracking-widest uppercase">Hello, I'm</h4>
+                    <h1 class="text-6xl md:text-8xl font-bold mb-4 display-font text-ink" style="line-height:1;">Md Sourav <span class="accent-text">Oyaj</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-medium mb-6" style="color: var(--mist);">
+                        I am a <span id="typed" class="font-semibold" style="color:var(--ink);"></span>
                     </h2>
-                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                    <p class="mb-8 max-w-md leading-relaxed" style="color:var(--mist);">
                         Aspiring AI/ML Engineer dedicated to building intelligent systems, deep learning models, and
                         seamlessly integrating AI into modern full-stack applications.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                         <a href="#contact"
-                            class="text-white px-8 py-3 rounded-full font-semibold transition-all" style="background: linear-gradient(135deg,#0077b6,#00d4ff); box-shadow: 0 4px 24px rgba(0,212,255,0.35);">Hire
+                            class="text-white px-8 py-3 rounded-full font-semibold transition-all" style="background: linear-gradient(135deg, #38BDF8, #0EA5E9); box-shadow: 0 4px 24px rgba(14,165,233,0.35);">Hire
                             Me</a>
                         <a href="#projects"
-                            class="text-neon hover:text-white px-8 py-3 rounded-full font-semibold transition-all" style="border: 1px solid rgba(0,212,255,0.5); backdrop-filter:blur(8px); background:rgba(0,212,255,0.05);">View
+                            class="text-ocean hover:text-white px-8 py-3 rounded-full font-semibold transition-all" style="border: 1px solid rgba(0,212,255,0.5); backdrop-filter:blur(8px); background:rgba(0,212,255,0.05);">View
                             Work</a>
                     </div>
                 </div>
 
                 <div class="relative" data-aos="zoom-in">
-                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full p-4 relative profile-pulse" style="border: 3px solid rgba(0,212,255,0.3); box-shadow: 0 0 40px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,119,182,0.1);">
-                        <div class="absolute inset-0 rounded-full" style="border: 1px solid rgba(0,212,255,0.5); animation: oceanPulse 3s ease-out infinite;"></div>
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full p-4 relative profile-pulse" style="border: 3px solid rgba(56,189,248,0.4); box-shadow: 0 0 40px rgba(14,165,233,0.12), inset 0 1px 0 rgba(255,255,255,0.8);">
+                        <div class="absolute inset-0 rounded-full" style="border: 1px solid rgba(56,189,248,0.5);"></div>
                         <img src="images/pic2.jpg" alt="Profile" class="w-full h-full rounded-full object-cover">
                     </div>
                 </div>
@@ -306,15 +327,15 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 px-8" style="background: rgba(0,30,60,0.2);">
+        <section id="about" class="py-20 px-8 section-alt">
             <div class="container mx-auto max-w-5xl">
                 <div class="flex flex-col md:flex-row gap-16 items-start">
                     <div class="w-full md:w-1/3" data-aos="fade-up">
-                        <h3 class="text-3xl font-bold mb-6 flex items-center gap-3 orbitron">
-                            <i class='bx bx-user neon-text'></i> About Me
+                        <h3 class="text-4xl font-bold mb-6 flex items-center gap-3 display-font" style="color:var(--ink);">
+                            <i class='bx bx-user accent-text'></i> About Me
                         </h3>
-                        <div class="space-y-4 text-gray-400">
-                            <p>Currently pursuing a <span class="text-white">B.Sc. in Computer Science and
+                        <div class="space-y-4" style="color:var(--mist);">
+                            <p>Currently pursuing a <span style="color:var(--ink); font-weight:600;">B.Sc. in Computer Science and
                                     Engineering</span> at International Islamic University Chittagong (IIUC).</p>
                             <p>My journey is fueled by a passion for solving complex problems through AI, web
                                 technologies, and research.</p>
@@ -324,36 +345,36 @@
                     <div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up"
                         data-aos-delay="200">
                         <!-- Education Card -->
-                        <div class="bg-sidebar/50 p-6 rounded-2xl neon-border">
-                            <h4 class="font-bold text-xl mb-4 text-neon">Education</h4>
+                        <div class="p-6 rounded-2xl glass-card border-ocean/20">
+                            <h4 class="font-bold text-xl mb-4 text-ocean">Education</h4>
                             <div class="space-y-6">
-                                <div class="relative pl-6 border-l border-neon/30">
-                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-neon rounded-full"></div>
-                                    <h5 class="font-bold text-white leading-tight">B.Sc. in CSE (IIUC)</h5>
+                                <div class="relative pl-6 border-l border-ocean/30">
+                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-ocean rounded-full"></div>
+                                    <h5 class="font-bold leading-tight" style="color:var(--ink);">B.Sc. in CSE (IIUC)</h5>
                                     <p class="text-xs text-gray-500 font-mono mb-1">2022 - Present</p>
                                     <p class="text-xs text-gray-400">Key Courses: AI, Machine Learning, DBMS,
                                         Algorithms, Software Engineering.</p>
                                 </div>
-                                <div class="relative pl-6 border-l border-neon/30 opacity-70">
-                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-neon rounded-full"></div>
-                                    <h5 class="font-bold text-white">HSC (Science)</h5>
+                                <div class="relative pl-6 border-l border-ocean/30 opacity-70">
+                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-ocean rounded-full"></div>
+                                    <h5 class="font-bold" style="color:var(--ink);">HSC (Science)</h5>
                                     <p class="text-xs text-gray-500 font-mono">2020 | GPA 4.42</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Certifications Card -->
-                        <div class="p-6 rounded-2xl glass-card neon-border">
-                            <h4 class="font-bold text-xl mb-4 text-neon">Certifications</h4>
+                        <div class="p-6 rounded-2xl glass-card border-ocean/20">
+                            <h4 class="font-bold text-xl mb-4 text-ocean">Certifications</h4>
                             <div class="space-y-6">
-                                <div class="relative pl-6 border-l border-neon/30">
-                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-neon rounded-full"></div>
-                                    <h5 class="font-bold text-white leading-tight">Mobile App Dev (EDGE Project)</h5>
+                                <div class="relative pl-6 border-l border-ocean/30">
+                                    <div class="absolute -left-[5px] top-1 w-2 h-2 bg-ocean rounded-full"></div>
+                                    <h5 class="font-bold leading-tight" style="color:var(--ink);">Mobile App Dev (EDGE Project)</h5>
                                     <p class="text-xs text-gray-500 font-mono mb-1">CUET | 6 Months | 2024</p>
                                     <p class="text-xs text-gray-400 mb-3">Advanced training in Android, Flutter, and iOS
                                         development conducted by EDGE,CUET.</p>
                                     <a href="images/edge-certificate.png" target="_blank"
-                                        class="inline-flex items-center gap-2 text-[10px] text-neon border border-neon/30 px-3 py-1 rounded-full hover:bg-neon hover:text-white transition-all">
+                                        class="inline-flex items-center gap-2 text-[10px] text-ocean border border-ocean/30 px-3 py-1 rounded-full hover:bg-ocean hover:text-white transition-all">
                                         <i class='bx bx-show'></i> View Certificate
                                     </a>
                                 </div>
@@ -379,59 +400,59 @@
         <!-- Removed Slider Navigation -->
 
         <!-- Services Section -->
-        <section id="services" class="py-20 px-8" style="background: rgba(0,20,50,0.1);">
+        <section id="services" class="py-20 px-8" style="background: rgba(255,255,255,0.15);">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">01.</span> Specializations
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">01 /</span> SPECIALIZATIONS
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in">
-                        <i class='bx bxs-brain text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Deep Learning</h4>
-                        <p class="text-sm text-gray-400">Neural network architectures, CV, and model optimization.</p>
+                        <i class='bx bxs-brain text-5xl text-ocean mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2" style="color:var(--ink);">Deep Learning</h4>
+                        <p class="text-sm" style="color:var(--mist);">Neural network architectures, CV, and model optimization.</p>
                     </div>
                     <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="100">
-                        <i class='bx bx-message-square-detail text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">NLP & RAG</h4>
-                        <p class="text-sm text-gray-400">Large Language Models and intelligent document retrieval.</p>
+                        <i class='bx bx-message-square-detail text-5xl text-ocean mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2" style="color:var(--ink);">NLP &amp; RAG</h4>
+                        <p class="text-sm" style="color:var(--mist);">Large Language Models and intelligent document retrieval.</p>
                     </div>
                     <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="200">
-                        <i class='bx bx-analyse text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">Data Science</h4>
-                        <p class="text-sm text-gray-400">Advanced ETL, pattern recognition, and predictive analytics.</p>
+                        <i class='bx bx-analyse text-5xl text-ocean mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2" style="color:var(--ink);">Data Science</h4>
+                        <p class="text-sm" style="color:var(--mist);">Advanced ETL, pattern recognition, and predictive analytics.</p>
                     </div>
                     <div class="p-8 glass-card rounded-2xl neon-border text-center group" data-aos="zoom-in" data-aos-delay="300">
-                        <i class='bx bx-layer text-5xl text-neon mb-4 inline-block group-hover:scale-110 transition-transform'></i>
-                        <h4 class="font-bold text-lg mb-2">AI Frameworks</h4>
-                        <p class="text-sm text-gray-400">Production-ready AI integration using FastAPI/Python.</p>
+                        <i class='bx bx-layer text-5xl text-ocean mb-4 inline-block group-hover:scale-110 transition-transform'></i>
+                        <h4 class="font-bold text-lg mb-2" style="color:var(--ink);">AI Frameworks</h4>
+                        <p class="text-sm" style="color:var(--mist);">Production-ready AI integration using FastAPI/Python.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Research Section -->
-        <section id="research" class="py-20 px-8" style="background: rgba(0,30,60,0.2);">
+        <section id="research" class="py-20 px-8 section-alt">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">02.</span> Research & Blog
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">02 /</span> RESEARCH &amp; BLOG
                 </h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Research Card 1 -->
                     <div class="p-8 glass-card rounded-2xl neon-border flex items-start gap-6 group" data-aos="fade-right">
-                        <div class="text-neon text-4xl pt-1"><i class='bx bx-bolt-circle'></i></div>
+                        <div class="text-ocean text-4xl pt-1"><i class='bx bx-bolt-circle'></i></div>
                         <div>
-                            <h4 class="font-bold text-xl mb-2 group-hover:text-neon transition-colors">Neural Network Optimization</h4>
-                            <p class="text-sm text-gray-400">Techniques for reducing latency in high-performance model architectures.</p>
-                            <a href="#" class="inline-block mt-4 text-xs text-neon hover:underline">Read Case Study →</a>
+                            <h4 class="font-bold text-xl mb-2" style="color:var(--ink);">Neural Network Optimization</h4>
+                            <p class="text-sm" style="color:var(--mist);">Techniques for reducing latency in high-performance model architectures.</p>
+                            <a href="#" class="inline-block mt-4 text-xs text-ocean hover:underline">Read Case Study →</a>
                         </div>
                     </div>
                     <!-- Research Card 2 -->
                     <div class="p-8 glass-card rounded-2xl neon-border flex items-start gap-6 group" data-aos="fade-left">
-                        <div class="text-neon text-4xl pt-1"><i class='bx bx-search-alt-2'></i></div>
+                        <div class="text-ocean text-4xl pt-1"><i class='bx bx-search-alt-2'></i></div>
                         <div>
-                            <h4 class="font-bold text-xl mb-2 group-hover:text-neon transition-colors">RAG System Efficiencies</h4>
-                            <p class="text-sm text-gray-400">Implementing low-rank adaptation on vector storage for LLM retrieval.</p>
-                            <a href="#" class="inline-block mt-4 text-xs text-neon hover:underline">Read Case Study →</a>
+                            <h4 class="font-bold text-xl mb-2" style="color:var(--ink);">RAG System Efficiencies</h4>
+                            <p class="text-sm" style="color:var(--mist);">Implementing low-rank adaptation on vector storage for LLM retrieval.</p>
+                            <a href="#" class="inline-block mt-4 text-xs text-ocean hover:underline">Read Case Study →</a>
                         </div>
                     </div>
                 </div>
@@ -439,34 +460,34 @@
         </section>
 
         <!-- Tech Stack Section -->
-        <section id="tech-stack" class="py-20 px-8" style="background: rgba(0,20,50,0.15);">
+        <section id="tech-stack" class="py-20 px-8" style="background: rgba(255,255,255,0.1);">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">03.</span> AI/ML Tech Stack
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">03 /</span> AI/ML TECH STACK
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in">
-                        <i class='bx bxl-python text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bxl-python text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">Python</span>
                     </div>
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="50">
-                        <i class='bx bxl-pytorch text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bxl-pytorch text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">PyTorch</span>
                     </div>
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="100">
-                        <i class='bx bxl-tensorflow text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bxl-tensorflow text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">TensorFlow</span>
                     </div>
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="150">
-                        <i class='bx bx-data text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bx-data text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">Pandas</span>
                     </div>
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="200">
-                        <i class='bx bxs-flask text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bxs-flask text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">FastAPI</span>
                     </div>
                     <div class="p-4 glass-card rounded-2xl neon-border flex flex-col items-center gap-3 group hover:-translate-y-2 transition-transform" data-aos="zoom-in" data-aos-delay="250">
-                        <i class='bx bxl-git text-4xl text-neon group-hover:scale-110 transition-transform'></i>
+                        <i class='bx bxl-git text-4xl text-ocean group-hover:scale-110 transition-transform'></i>
                         <span class="text-xs font-mono">Git/VC</span>
                     </div>
                 </div>
@@ -474,85 +495,85 @@
         </section>
 
         <!-- CP Section -->
-        <section id="cp" class="py-20 px-8" style="background: rgba(0,30,60,0.2);">
+        <section id="cp" class="py-20 px-8 section-alt">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">04.</span> Competitive Programming
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">04 /</span> COMPETITIVE PROGRAMMING
                 </h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-6 glass-card rounded-2xl neon-border flex flex-col items-center gap-4"
                         data-aos="flip-left">
-                        <img src="https://simpleicons.org/icons/codeforces.svg" class="w-12 h-12 invert opacity-80"
-                            style="filter: invert(1) sepia(1) saturate(3) hue-rotate(170deg) brightness(1.5);"
+                        <img src="https://simpleicons.org/icons/codeforces.svg" class="w-12 h-12 opacity-80"
+                            style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
                             alt="Codeforces">
-                        <p class="font-mono text-neon">Codeforces</p>
+                        <p class="font-mono text-ocean">Codeforces</p>
                     </div>
                     <div class="p-6 glass-card rounded-2xl neon-border flex flex-col items-center gap-4"
                         data-aos="flip-left" data-aos-delay="100">
-                        <img src="https://simpleicons.org/icons/leetcode.svg" class="w-12 h-12 invert opacity-80"
-                            style="filter: invert(1) sepia(1) saturate(3) hue-rotate(170deg) brightness(1.5);"
+                        <img src="https://simpleicons.org/icons/leetcode.svg" class="w-12 h-12 opacity-80"
+                            style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
                             alt="LeetCode">
-                        <p class="font-mono text-neon">LeetCode</p>
+                        <p class="font-mono text-ocean">LeetCode</p>
                     </div>
                     <div class="p-6 glass-card rounded-2xl neon-border flex flex-col items-center gap-4"
                         data-aos="flip-left" data-aos-delay="200">
-                        <img src="https://simpleicons.org/icons/hackerrank.svg" class="w-12 h-12 invert opacity-80"
-                            style="filter: invert(1) sepia(1) saturate(3) hue-rotate(170deg) brightness(1.5);"
+                        <img src="https://simpleicons.org/icons/hackerrank.svg" class="w-12 h-12 opacity-80"
+                            style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
                             alt="HackerRank">
-                        <p class="font-mono text-neon">HackerRank</p>
+                        <p class="font-mono text-ocean">HackerRank</p>
                     </div>
                     <div class="p-6 glass-card rounded-2xl neon-border flex flex-col items-center gap-4"
                         data-aos="flip-left" data-aos-delay="300">
-                        <img src="https://simpleicons.org/icons/geeksforgeeks.svg" class="w-12 h-12 invert opacity-80"
-                            style="filter: invert(1) sepia(1) saturate(3) hue-rotate(170deg) brightness(1.5);"
+                        <img src="https://simpleicons.org/icons/geeksforgeeks.svg" class="w-12 h-12 opacity-80"
+                            style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
                             alt="GFG">
-                        <p class="font-mono text-neon">GFG</p>
+                        <p class="font-mono text-ocean">GFG</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20 px-8" style="background: rgba(0,20,50,0.1);">
+        <section id="projects" class="py-20 px-8" style="background: rgba(255,255,255,0.15);">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">06.</span> Latest Projects
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">06 /</span> LATEST PROJECTS
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- AI Chatbot -->
                     <div class="glass-card rounded-3xl overflow-hidden neon-border group" data-aos="fade-up">
                         <div class="relative h-48 overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent z-10"></div>
                             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
                                 class="w-full h-full object-cover transition-transform group-hover:scale-110"
                                 alt="AI Chatbot">
                             <div class="absolute bottom-4 left-6 z-20">
-                                <h4 class="text-xl font-bold">AI Chatbot</h4>
-                                <p class="text-xs text-neon font-mono">Groq Llama 3 Edition</p>
+                                <h4 class="text-xl font-bold" style="color:var(--ink);">AI Chatbot</h4>
+                                <p class="text-xs text-frost font-mono">Groq Llama 3 Edition</p>
                             </div>
                         </div>
                         <div class="p-6">
-                            <p class="text-gray-400 text-sm mb-6 line-clamp-3">Multi-agent system with Research, RAG,
+                            <p class="text-sm mb-6 line-clamp-3" style="color:var(--mist);">Multi-agent system with Research, RAG,
                                 and OCR capabilities. Built with FastAPI, Streamlit, and LangChain for high-performance
                                 intelligence.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
-                                    class="text-[10px] px-2 py-0.5 border border-neon/30 rounded text-gray-400">FastAPI</span>
+                                    class="text-[10px] px-2 py-0.5 border border-ocean/20 rounded text-mist bg-ocean/5">FastAPI</span>
                                 <span
-                                    class="text-[10px] px-2 py-0.5 border border-neon/30 rounded text-gray-400">LangChain</span>
+                                    class="text-[10px] px-2 py-0.5 border border-ocean/20 rounded text-mist bg-ocean/5">LangChain</span>
                                 <span
-                                    class="text-[10px] px-2 py-0.5 border border-neon/30 rounded text-gray-400">Groq</span>
+                                    class="text-[10px] px-2 py-0.5 border border-ocean/20 rounded text-mist bg-ocean/5">Groq</span>
                                 <span
-                                    class="text-[10px] px-2 py-0.5 border border-neon/30 rounded text-gray-400">FAISS</span>
+                                    class="text-[10px] px-2 py-0.5 border border-ocean/20 rounded text-mist bg-ocean/5">FAISS</span>
                             </div>
                             <div class="flex items-center gap-4">
                                 <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
-                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    class="bg-ocean/10 hover:bg-ocean text-ocean hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-ocean/20">
                                     <i class='bx bx-play-circle mr-1'></i> View Demo
                                 </a>
                                 <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
-                                    class="text-gray-400 hover:text-neon text-2xl transition-colors">
+                                    class="text-mist hover:text-ocean text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -566,23 +587,23 @@
                             <img src="images/note-app.jpg"
                                 class="w-full h-full object-cover transition-transform group-hover:scale-110"
                                 alt="Note App">
-                            <div class="absolute inset-0 bg-neon/10 group-hover:bg-transparent"></div>
+                            <div class="absolute inset-0 bg-sky/5 group-hover:bg-transparent"></div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-xl font-bold">Note App</h4>
+                                <h4 class="text-xl font-bold" style="color:var(--ink);">Note App</h4>
                                 <span
-                                    class="px-3 py-1 bg-neon/10 text-neon rounded-full text-xs font-mono">Android</span>
+                                    class="px-3 py-1 bg-ocean/10 text-ocean rounded-full text-xs font-mono">Android</span>
                             </div>
-                            <p class="text-gray-400 text-sm mb-6">Secure note-taking Android application with cloud sync
+                            <p class="text-sm mb-6" style="color:var(--mist);">Secure note-taking Android application with cloud sync
                                 and user privacy focus.</p>
                             <div class="flex items-center gap-4">
                                 <a href="https://github.com/mr-captrox/Note-app" target="_blank"
-                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    class="bg-ocean/10 hover:bg-ocean text-ocean hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-ocean/20">
                                     Case Study
                                 </a>
                                 <a href="https://github.com/mr-captrox/Note-app" target="_blank"
-                                    class="text-gray-400 hover:text-neon text-2xl transition-colors">
+                                    class="text-mist hover:text-ocean text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -596,23 +617,23 @@
                             <img src="images/b.png"
                                 class="w-full h-full object-cover transition-transform group-hover:scale-110"
                                 alt="RoktoSetu">
-                            <div class="absolute inset-0 bg-neon/10 group-hover:bg-transparent"></div>
+                            <div class="absolute inset-0 bg-sky/5 group-hover:bg-transparent"></div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-xl font-bold">RoktoSetu</h4>
-                                <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-xs font-mono">Web
+                                <h4 class="text-xl font-bold" style="color:var(--ink);">RoktoSetu</h4>
+                                <span class="px-3 py-1 bg-ocean/10 text-ocean rounded-full text-xs font-mono">Web
                                     Platform</span>
                             </div>
-                            <p class="text-gray-400 text-sm mb-6">Blood donation network connecting donors with
+                            <p class="text-sm mb-6" style="color:var(--mist);">Blood donation network connecting donors with
                                 hospitals in real-time.</p>
                             <div class="flex items-center gap-4">
                                 <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
-                                    class="bg-neon/10 hover:bg-neon text-neon hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-neon/30">
+                                    class="bg-ocean/10 hover:bg-ocean text-ocean hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-ocean/20">
                                     Case Study
                                 </a>
                                 <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
-                                    class="text-gray-400 hover:text-neon text-2xl transition-colors">
+                                    class="text-mist hover:text-ocean text-2xl transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -622,7 +643,7 @@
 
                 <div class="mt-12 text-center">
                     <a href="https://github.com/mr-captrox" target="_blank"
-                        class="inline-flex items-center gap-2 text-neon hover:underline font-mono">
+                        class="inline-flex items-center gap-2 text-ocean hover:underline font-mono">
                         View More on GitHub <i class='bx bx-right-arrow-alt'></i>
                     </a>
                 </div>
@@ -630,39 +651,39 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 px-8" style="background: rgba(0,30,60,0.25);">
+        <section id="testimonials" class="py-20 px-8 section-alt">
             <div class="container mx-auto max-w-5xl">
-                <h3 class="text-3xl font-bold mb-12 text-center orbitron" data-aos="fade-up">
-                    <span class="neon-text font-mono">04.</span> Professional Endorsements
+                <h3 class="text-4xl font-bold mb-12 text-center display-font" style="color:var(--ink);" data-aos="fade-up">
+                    <span class="accent-text font-mono text-2xl">05 /</span> ENDORSEMENTS
                 </h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="p-8 glass-card rounded-3xl neon-border relative group" data-aos="fade-up">
-                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-neon/20'></i>
-                        <p class="text-gray-400 italic mb-6 leading-relaxed">
+                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-ocean/20'></i>
+                        <p class="italic mb-6 leading-relaxed" style="color:var(--mist);">
                             "Md Sourav's dedication to deep learning research and his ability to architect complex AI pipelines is truly remarkable. His work on RAG systems is state-of-the-art."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center text-neon border border-neon/30">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center accent-text" style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3);">
                                 <i class='bx bxs-user-voice text-2xl'></i>
                             </div>
                             <div>
-                                <h5 class="font-bold text-white">Project Supervisor</h5>
-                                <p class="text-xs text-neon font-mono">Dept. of CSE, IIUC</p>
+                                <h5 class="font-bold" style="color:var(--ink);">Project Supervisor</h5>
+                                <p class="text-xs accent-text font-mono">Dept. of CSE, IIUC</p>
                             </div>
                         </div>
                     </div>
                     <div class="p-8 glass-card rounded-3xl neon-border relative group" data-aos="fade-up" data-aos-delay="100">
-                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-neon/20'></i>
-                        <p class="text-gray-400 italic mb-6 leading-relaxed">
+                        <i class='bx bxs-quote-alt-left absolute top-6 right-8 text-4xl text-ocean/20'></i>
+                        <p class="italic mb-6 leading-relaxed" style="color:var(--mist);">
                             "A highly skilled developer with a keen eye for modern aesthetics and efficient code. His performance in the EDGE project was exceptional."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-neon/10 flex items-center justify-center text-neon border border-neon/30">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center accent-text" style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3);">
                                 <i class='bx bxs-medal text-2xl'></i>
                             </div>
                             <div>
-                                <h5 class="font-bold text-white">EDGE Mentor</h5>
-                                <p class="text-xs text-neon font-mono">CUET/BCC Professional Training</p>
+                                <h5 class="font-bold" style="color:var(--ink);">EDGE Mentor</h5>
+                                <p class="text-xs accent-text font-mono">CUET/BCC Professional Training</p>
                             </div>
                         </div>
                     </div>
@@ -671,29 +692,29 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 px-8" style="background: rgba(0,20,50,0.2);">
+        <section id="contact" class="py-20 px-8" style="background: rgba(255,255,255,0.12);">
             <div class="container mx-auto max-w-3xl">
-                <h3 class="text-3xl font-bold mb-4 text-center orbitron" data-aos="fade-up">Get In Touch</h3>
-                <p class="text-gray-400 text-center mb-12" data-aos="fade-up">I'm currently looking for new
+                <h3 class="text-4xl font-bold mb-4 text-center display-font" style="color:var(--ink);" data-aos="fade-up">GET IN TOUCH</h3>
+                <p class="text-center mb-12" style="color:var(--mist);" data-aos="fade-up">I'm currently looking for new
                     opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
 
                 <form action="https://formspree.io/f/xanqgyov" method="POST" class="space-y-6" data-aos="fade-up">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <input type="text" name="name" placeholder="Name" required
-                                class="w-full bg-sidebar/50 border border-neon/20 p-4 rounded-xl focus:border-neon outline-none transition-all placeholder:text-gray-600">
+                                class="w-full bg-white/40 border border-ocean/20 p-4 rounded-xl focus:border-ocean outline-none transition-all placeholder:text-mist/70">
                         </div>
                         <div>
                             <input type="email" name="email" placeholder="Email" required
-                                class="w-full bg-sidebar/50 border border-neon/20 p-4 rounded-xl focus:border-neon outline-none transition-all placeholder:text-gray-600">
+                                class="w-full bg-white/40 border border-ocean/20 p-4 rounded-xl focus:border-ocean outline-none transition-all placeholder:text-mist/70">
                         </div>
                     </div>
                     <textarea name="message" placeholder="Message" rows="6" required
-                        class="w-full bg-sidebar/50 border border-neon/20 p-4 rounded-xl focus:border-neon outline-none transition-all placeholder:text-gray-600"></textarea>
+                        class="w-full bg-white/40 border border-ocean/20 p-4 rounded-xl focus:border-ocean outline-none transition-all placeholder:text-mist/70"></textarea>
 
                     <div class="text-center">
                         <button type="submit"
-                            class="text-white px-12 py-4 rounded-full font-bold transition-all" style="background: linear-gradient(135deg,#0077b6,#00d4ff); box-shadow: 0 4px 24px rgba(0,212,255,0.4);">
+                            class="text-white px-12 py-4 rounded-full font-bold transition-all" style="background: linear-gradient(135deg, #38BDF8, #0EA5E9); box-shadow: 0 4px 20px rgba(14,165,233,0.35);">
                             Say Hello <i class='bx bx-send ml-2'></i>
                         </button>
                     </div>
@@ -701,14 +722,14 @@
             </div>
         </section>
 
-        <footer class="py-12 text-center text-sm" style="border-top: 1px solid rgba(0,212,255,0.12); color: rgba(176,224,240,0.6);">
+        <footer class="py-12 text-center text-sm" style="border-top: 1px solid rgba(56,189,248,0.2); color: var(--mist);">
             <div class="mb-4 flex justify-center gap-6 text-xl">
-                <a href="https://github.com/mr-captrox" target="_blank" class="hover:text-neon transition-colors"><i
+                <a href="https://github.com/mr-captrox" target="_blank" class="hover:text-ocean transition-colors"><i
                         class='bx bxl-github'></i></a>
                 <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank"
-                    class="hover:text-neon transition-colors"><i class='bx bxl-linkedin'></i></a>
+                    class="hover:text-ocean transition-colors"><i class='bx bxl-linkedin'></i></a>
             </div>
-            <p>&copy; 2025 Md Sourav Oyaj. Built with <i class='bx bxs-heart text-neon'></i> and code.</p>
+            <p>&copy; 2025 Md Sourav Oyaj. Built with <i class='bx bxs-heart accent-text'></i> and code.</p>
         </footer>
     </main>
 
@@ -814,7 +835,7 @@
 
     <!-- Scroll to Top Button -->
     <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-2xl transition-all duration-300 opacity-0 invisible z-[9999] hover:bg-blue-700">
+        class="fixed bottom-8 right-8 p-4 text-white rounded-full shadow-2xl transition-all duration-300 opacity-0 invisible z-[9999]">
         <i class="bi bi-arrow-up text-xl"></i>
     </button>
 </body>
