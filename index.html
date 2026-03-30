@@ -176,13 +176,25 @@
         }
 
         @keyframes rotateFull {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes pingPulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.3); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
         }
 
         /* ── Futuristic Buttons ── */
@@ -226,7 +238,8 @@
         }
 
         /* ── Input Styling ── */
-        input, textarea {
+        input,
+        textarea {
             background: rgba(255, 255, 255, 0.4) !important;
             backdrop-filter: blur(12px) !important;
             border: 1px solid rgba(0, 240, 255, 0.2) !important;
@@ -236,7 +249,8 @@
             transition: all 0.3s ease !important;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             border-color: var(--cyan) !important;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.2) !important;
             outline: none !important;
@@ -248,11 +262,20 @@
         }
 
         /* ── Hide Nav Styles ── */
-        .sidebar, #mobile-toggle { display: none !important; }
+        .sidebar,
+        #mobile-toggle {
+            display: none !important;
+        }
 
         @media (max-width: 768px) {
-            .profile-container { width: 240px; height: 240px; }
-            .display-font { font-size: 3rem !important; }
+            .profile-container {
+                width: 240px;
+                height: 240px;
+            }
+
+            .display-font {
+                font-size: 3rem !important;
+            }
         }
     </style>
 </head>
@@ -269,20 +292,29 @@
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-16 relative z-10">
                 <div class="max-w-2xl text-center md:text-left" data-aos="fade-right">
                     <div class="inline-block py-1 px-4 mb-6 rounded-full robotic-glass border-cyan/30">
-                        <span class="robotic-text text-sm font-bold tracking-widest uppercase">Initializing Interface...</span>
+                        <span class="robotic-text text-sm font-bold tracking-widest uppercase">Initializing
+                            Interface...</span>
                     </div>
-                    <h1 class="text-6xl md:text-9xl font-bold mb-6 display-font leading-none text-ink relative inline-block">
-                        <span class="relative z-10">Md Sourav <span class="text-transparent" style="-webkit-text-stroke: 2px var(--ink); opacity: 0.8;">Oyaj</span></span>
-                        <span class="absolute inset-0 z-0 blur-2xl opacity-30 text-cyan select-none pointer-events-none" aria-hidden="true">Md Sourav Oyaj</span>
+                    <h1
+                        class="text-6xl md:text-9xl font-bold mb-6 display-font leading-none text-ink relative inline-block">
+                        <span class="relative z-10">Md Sourav <span class="text-transparent"
+                                style="-webkit-text-stroke: 2px var(--ink); opacity: 0.8;">Oyaj</span></span>
+                        <span class="absolute inset-0 z-0 blur-2xl opacity-30 text-cyan select-none pointer-events-none"
+                            aria-hidden="true">Md Sourav Oyaj</span>
                     </h1>
-                    <h2 class="text-2xl md:text-4xl font-medium mb-8 flex items-center justify-center md:justify-start gap-4">
-                        <span class="text-mist">System Role:</span> 
+                    <h2
+                        class="text-2xl md:text-4xl font-medium mb-8 flex items-center justify-center md:justify-start gap-4">
+                        <span class="text-mist">System Role:</span>
                         <span id="typed" class="font-bold text-ink robotic-glass px-4 py-1 rounded-lg"></span>
                     </h2>
-                    <p class="text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-mist" data-aos="fade-up" data-aos-delay="200">
-                        Architecting the future through <span class="text-ink font-semibold">Deep Learning</span>, <span class="text-ink font-semibold">Autonomous Systems</span>, and premium <span class="text-ink font-semibold">AI Integration</span>.
+                    <p class="text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-mist" data-aos="fade-up"
+                        data-aos-delay="200">
+                        Architecting the future through <span class="text-ink font-semibold">Deep Learning</span>, <span
+                            class="text-ink font-semibold">Autonomous Systems</span>, and premium <span
+                            class="text-ink font-semibold">AI Integration</span>.
                     </p>
-                    <div class="flex flex-wrap gap-6 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex flex-wrap gap-6 justify-center md:justify-start" data-aos="fade-up"
+                        data-aos-delay="400">
                         <a href="#projects" class="btn-liquid uppercase">
                             <i class='bx bx-brain'></i> Access Projects
                         </a>
@@ -296,12 +328,14 @@
                     <div class="profile-frame"></div>
                     <div class="profile-pulse"></div>
                     <img src="images/pic2.jpg" alt="Robotic Md Sourav Oyaj" class="profile-image">
-                    
+
                     <!-- Floating Data Tags -->
-                    <div class="absolute -top-10 -right-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text rotate-12" data-aos="fade-left" data-aos-delay="800">
+                    <div class="absolute -top-10 -right-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text rotate-12"
+                        data-aos="fade-left" data-aos-delay="800">
                         LATENCY: 12ms
                     </div>
-                    <div class="absolute -bottom-10 -left-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text -rotate-12" data-aos="fade-right" data-aos-delay="1000">
+                    <div class="absolute -bottom-10 -left-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text -rotate-12"
+                        data-aos="fade-right" data-aos-delay="1000">
                         UPTIME: 99.9%
                     </div>
                 </div>
@@ -317,10 +351,14 @@
                             <span class="w-12 h-0.5 bg-cyan"></span> Neural Architecture
                         </h3>
                         <div class="space-y-6 text-xl leading-relaxed text-mist">
-                            <p>Currently synthesizing logical systems and <span class="text-ink font-bold">Autonomous Intelligence</span> as a B.Sc. student at <span class="text-electric font-semibold">International Islamic University Chittagong (IIUC)</span>.</p>
-                            <p>Specialized in deep-neural processing, high-dimensional data analysis, and the deployment of scalable AI protocols across diverse tech stacks.</p>
+                            <p>Currently synthesizing logical systems and <span class="text-ink font-bold">Autonomous
+                                    Intelligence</span> as a B.Sc. student at <span
+                                    class="text-electric font-semibold">International Islamic University Chittagong
+                                    (IIUC)</span>.</p>
+                            <p>Specialized in deep-neural processing, high-dimensional data analysis, and the deployment
+                                of scalable AI protocols across diverse tech stacks.</p>
                         </div>
-                        
+
                         <div class="mt-12 grid grid-cols-2 gap-6">
                             <div class="robotic-glass p-6 text-center">
                                 <span class="block text-4xl font-bold text-ink mb-1">20+</span>
@@ -359,24 +397,28 @@
                             <div class="border-l-2 border-cyan/30 pl-4">
                                 <h5 class="font-bold text-ink">Mobile App Dev (EDGE)</h5>
                                 <p class="text-sm text-mist mb-4">CUET | 6 Months | 2024</p>
-                                <a href="images/edge-certificate.png" target="_blank" class="text-xs font-bold text-cyan border border-cyan/30 px-4 py-2 rounded-full hover:bg-cyan hover:text-white transition-all inline-block">
+                                <a href="images/edge-certificate.png" target="_blank"
+                                    class="text-xs font-bold text-cyan border border-cyan/30 px-4 py-2 rounded-full hover:bg-cyan hover:text-white transition-all inline-block">
                                     DOWNLOAD CERTIFICATE
                                 </a>
                             </div>
                         </div>
                     </div>
-                <!-- GitHub Real-time Stats -->
-                <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10" data-aos="fade-up">
-                    <div class="robotic-glass p-8 flex justify-center items-center" style="background:rgba(0,150,255,0.05);">
-                        <img src="https://github-readme-stats.vercel.app/api?username=mr-captrox&show_icons=true&theme=radical&hide_border=true&bg_color=0b111e"
-                            alt="GitHub Stats" class="max-w-full hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="robotic-glass p-8 flex justify-center items-center" style="background:rgba(0,150,255,0.05);">
-                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mr-captrox&layout=compact&theme=radical&hide_border=true&bg_color=0b111e"
-                            alt="Top Languages" class="max-w-full hover:scale-105 transition-transform duration-500">
+                    <!-- GitHub Real-time Stats -->
+                    <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10" data-aos="fade-up">
+                        <div class="robotic-glass p-8 flex justify-center items-center"
+                            style="background:rgba(0,150,255,0.05);">
+                            <img src="https://github-readme-stats.vercel.app/api?username=mr-captrox&show_icons=true&theme=radical&hide_border=true&bg_color=0b111e"
+                                alt="GitHub Stats" class="max-w-full hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="robotic-glass p-8 flex justify-center items-center"
+                            style="background:rgba(0,150,255,0.05);">
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mr-captrox&layout=compact&theme=radical&hide_border=true&bg_color=0b111e"
+                                alt="Top Languages"
+                                class="max-w-full hover:scale-105 transition-transform duration-500">
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Services Section -->
@@ -387,32 +429,40 @@
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="p-10 robotic-glass text-center group" data-aos="zoom-in">
-                        <div class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
+                        <div
+                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
                             <i class='bx bxs-brain text-5xl text-cyan'></i>
                         </div>
                         <h4 class="text-2xl font-bold mb-4 text-ink">Deep Learning</h4>
-                        <p class="text-mist leading-relaxed">Neural architectures, CNNs, RNNs, and Model Hyper-optimization.</p>
+                        <p class="text-mist leading-relaxed">Neural architectures, CNNs, RNNs, and Model
+                            Hyper-optimization.</p>
                     </div>
                     <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
+                        <div
+                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
                             <i class='bx bx-message-square-detail text-5xl text-cyan'></i>
                         </div>
                         <h4 class="text-2xl font-bold mb-4 text-ink">NLP & RAG</h4>
-                        <p class="text-mist leading-relaxed">LLM Fine-tuning, Vector Databases, and Semantic Retrieval.</p>
+                        <p class="text-mist leading-relaxed">LLM Fine-tuning, Vector Databases, and Semantic Retrieval.
+                        </p>
                     </div>
                     <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
+                        <div
+                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
                             <i class='bx bx-analyse text-5xl text-cyan'></i>
                         </div>
                         <h4 class="text-2xl font-bold mb-4 text-ink">MLOps</h4>
-                        <p class="text-mist leading-relaxed">Automated Training Pipelines, Model Drift Tracking, and Deployment.</p>
+                        <p class="text-mist leading-relaxed">Automated Training Pipelines, Model Drift Tracking, and
+                            Deployment.</p>
                     </div>
                     <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
+                        <div
+                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
                             <i class='bx bx-layer text-5xl text-cyan'></i>
                         </div>
                         <h4 class="text-2xl font-bold mb-4 text-ink">AI Integration</h4>
-                        <p class="text-mist leading-relaxed">FastAPI Backends, Streamlit Frontends, and Real-time Processing.</p>
+                        <p class="text-mist leading-relaxed">FastAPI Backends, Streamlit Frontends, and Real-time
+                            Processing.</p>
                     </div>
                 </div>
             </div>
@@ -431,12 +481,14 @@
                         <p class="text-[10px] robotic-text mt-2">CORE ENGINE</p>
                     </div>
                     <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="50">
-                        <i class='bx bxl-pytorch text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
+                        <i
+                            class='bx bxl-pytorch text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
                         <h5 class="font-bold text-ink">PyTorch</h5>
                         <p class="text-[10px] robotic-text mt-2">DEEP NEURAL</p>
                     </div>
                     <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="100">
-                        <i class='bx bxl-tensorflow text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
+                        <i
+                            class='bx bxl-tensorflow text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
                         <h5 class="font-bold text-ink">TensorFlow</h5>
                         <p class="text-[10px] robotic-text mt-2">MODEL FLOW</p>
                     </div>
@@ -467,28 +519,37 @@
                 </h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left">
-                        <div class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
+                        <div
+                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
                             <img src="https://simpleicons.org/icons/codeforces.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="Codeforces">
+                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
+                                alt="Codeforces">
                         </div>
                         <p class="font-mono text-cyan font-bold tracking-widest text-sm">CODEFORCES</p>
                     </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left" data-aos-delay="100">
-                        <div class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
+                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
+                        data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
                             <img src="https://simpleicons.org/icons/leetcode.svg" class="w-10 h-10 opacity-80"
                                 style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="LeetCode">
                         </div>
                         <p class="font-mono text-cyan font-bold tracking-widest text-sm">LEETCODE</p>
                     </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left" data-aos-delay="200">
-                        <div class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
+                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
+                        data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
                             <img src="https://simpleicons.org/icons/hackerrank.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="HackerRank">
+                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
+                                alt="HackerRank">
                         </div>
                         <p class="font-mono text-cyan font-bold tracking-widest text-sm">HACKERRANK</p>
                     </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left" data-aos-delay="300">
-                        <div class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
+                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
+                        data-aos-delay="300">
+                        <div
+                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
                             <img src="https://simpleicons.org/icons/geeksforgeeks.svg" class="w-10 h-10 opacity-80"
                                 style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="GFG">
                         </div>
@@ -510,7 +571,8 @@
                     <div class="robotic-glass group" data-aos="fade-up">
                         <div class="relative h-64 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="AI Chatbot">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                alt="AI Chatbot">
                             <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
                             <div class="absolute bottom-6 left-8">
                                 <h4 class="text-3xl font-bold text-white display-font mb-1">AI Chatbot</h4>
@@ -518,17 +580,23 @@
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Multi-agent system with Research, RAG, and OCR capabilities. Built with FastAPI, FAISS, and Groq Llama-3.</p>
+                            <p class="text-mist text-base mb-8 line-clamp-3">Multi-agent system with Research, RAG, and
+                                OCR capabilities. Built with FastAPI, FAISS, and Groq Llama-3.</p>
                             <div class="flex flex-wrap gap-2 mb-10">
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FASTAPI</span>
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">LANGCHAIN</span>
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FAISS</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FASTAPI</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">LANGCHAIN</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FAISS</span>
                             </div>
                             <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank" class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
+                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
+                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
                                     VIEW DEMO <i class='bx bx-right-top-arrow-circle text-lg'></i>
                                 </a>
-                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank" class="text-2xl text-mist hover:text-cyan transition-colors">
+                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
+                                    class="text-2xl text-mist hover:text-cyan transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -538,7 +606,9 @@
                     <!-- Project 2 -->
                     <div class="robotic-glass group" data-aos="fade-up" data-aos-delay="200">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="images/note-app.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Note App">
+                            <img src="images/note-app.jpg"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                alt="Note App">
                             <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
                             <div class="absolute bottom-6 left-8">
                                 <h4 class="text-3xl font-bold text-white display-font mb-1">Note Fusion</h4>
@@ -546,16 +616,21 @@
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Advanced note-taking environment optimized for cloud-sync and private data encryption.</p>
+                            <p class="text-mist text-base mb-8 line-clamp-3">Advanced note-taking environment optimized
+                                for cloud-sync and private data encryption.</p>
                             <div class="flex flex-wrap gap-2 mb-10">
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">ANDROID</span>
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FIREBASE</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">ANDROID</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FIREBASE</span>
                             </div>
                             <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/Note-app" target="_blank" class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
+                                <a href="https://github.com/mr-captrox/Note-app" target="_blank"
+                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
                                     VIEW CASE <i class='bx bx-right-top-arrow-circle text-lg'></i>
                                 </a>
-                                <a href="https://github.com/mr-captrox/Note-app" target="_blank" class="text-2xl text-mist hover:text-cyan transition-colors">
+                                <a href="https://github.com/mr-captrox/Note-app" target="_blank"
+                                    class="text-2xl text-mist hover:text-cyan transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -565,7 +640,9 @@
                     <!-- Project 3 -->
                     <div class="robotic-glass group" data-aos="fade-up" data-aos-delay="400">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="images/b.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="RoktoSetu">
+                            <img src="images/b.png"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                alt="RoktoSetu">
                             <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
                             <div class="absolute bottom-6 left-8">
                                 <h4 class="text-3xl font-bold text-white display-font mb-1">RoktoSetu</h4>
@@ -573,16 +650,21 @@
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Intelligent blood donation network connecting donors with hospitals in real-time latency.</p>
+                            <p class="text-mist text-base mb-8 line-clamp-3">Intelligent blood donation network
+                                connecting donors with hospitals in real-time latency.</p>
                             <div class="flex flex-wrap gap-2 mb-10">
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">WEB</span>
-                                <span class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">REALTIME</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">WEB</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">REALTIME</span>
                             </div>
                             <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank" class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
+                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
+                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
                                     VIEW CASE <i class='bx bx-right-top-arrow-circle text-lg'></i>
                                 </a>
-                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank" class="text-2xl text-mist hover:text-cyan transition-colors">
+                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
+                                    class="text-2xl text-mist hover:text-cyan transition-colors">
                                     <i class='bx bxl-github'></i>
                                 </a>
                             </div>
@@ -602,10 +684,12 @@
                     <div class="p-10 robotic-glass relative group" data-aos="fade-right">
                         <i class='bx bxs-quote-alt-left absolute top-8 right-10 text-6xl text-cyan/10'></i>
                         <p class="italic text-lg mb-8 leading-relaxed text-mist">
-                            "Md Sourav's dedication to deep learning research and his ability to architect complex AI pipelines is truly remarkable. His work on RAG systems is state-of-the-art."
+                            "Md Sourav's dedication to deep learning research and his ability to architect complex AI
+                            pipelines is truly remarkable. His work on RAG systems is state-of-the-art."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
+                            <div
+                                class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
                                 <i class='bx bxs-user-voice text-3xl'></i>
                             </div>
                             <div>
@@ -617,10 +701,12 @@
                     <div class="p-10 robotic-glass relative group" data-aos="fade-left">
                         <i class='bx bxs-quote-alt-left absolute top-8 right-10 text-6xl text-cyan/10'></i>
                         <p class="italic text-lg mb-8 leading-relaxed text-mist">
-                            "A highly skilled developer with a keen eye for modern aesthetics and efficient code. His performance in the EDGE project was exceptional."
+                            "A highly skilled developer with a keen eye for modern aesthetics and efficient code. His
+                            performance in the EDGE project was exceptional."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
+                            <div
+                                class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
                                 <i class='bx bxs-medal text-3xl'></i>
                             </div>
                             <div>
@@ -641,20 +727,25 @@
                     Open for high-priority collaborations and innovative AI research. Initiate direct protocol below.
                 </p>
 
-                <form action="https://formspree.io/f/xanqgyov" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left" data-aos="fade-up" data-aos-delay="400">
+                <form action="https://formspree.io/f/xanqgyov" method="POST"
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left" data-aos="fade-up" data-aos-delay="400">
                     <div class="space-y-8">
                         <div>
-                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Designation Name</label>
+                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Designation
+                                Name</label>
                             <input type="text" name="name" placeholder="IDENTIFY YOURSELF" required class="w-full">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Communication Link</label>
+                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Communication
+                                Link</label>
                             <input type="email" name="email" placeholder="EMAIL@INTERFACE.COM" required class="w-full">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Transmission Data</label>
-                        <textarea name="message" placeholder="ENTER MESSAGE PROTOCOL..." rows="6" required class="w-full h-[calc(100%-48px)]"></textarea>
+                        <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Transmission
+                            Data</label>
+                        <textarea name="message" placeholder="ENTER MESSAGE PROTOCOL..." rows="6" required
+                            class="w-full h-[calc(100%-48px)]"></textarea>
                     </div>
                     <div class="md:col-span-2 text-center mt-6">
                         <button type="submit" class="btn-liquid w-full md:w-auto px-20">
@@ -668,15 +759,17 @@
         <footer class="py-20 text-center border-t border-cyan/10">
             <div class="container mx-auto">
                 <div class="flex justify-center gap-10 mb-10">
-                    <a href="https://github.com/mr-captrox" target="_blank" class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
+                    <a href="https://github.com/mr-captrox" target="_blank"
+                        class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
                         <i class='bx bxl-github'></i>
                     </a>
-                    <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank" class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
+                    <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank"
+                        class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
                         <i class='bx bxl-linkedin'></i>
                     </a>
                 </div>
                 <p class="text-mist font-bold robotic-text text-xs tracking-tighter">
-                    &copy; 2025 MD SOURAV OYAJ <span class="mx-4 text-cyan/30">|</span> 
+                    &copy; 2025 MD SOURAV OYAJ <span class="mx-4 text-cyan/30">|</span>
                     SYSTEM ARCHITECTED WITH <i class='bx bxs-bolt text-cyan animation-pulse'></i> AND PRECISION.
                 </p>
             </div>
@@ -753,9 +846,9 @@
         new Typed('#typed', {
             strings: [
                 '^1000 AI/ML ENGINEER',
-                'DEEP LEARNING RESEARCHER',
-                'FULL-STACK AI DEVELOPER',
-                'SYSTEM ARCHITECT'
+                '^1000 DEEP LEARNING RESEARCHER',
+                '^1000 FULL-STACK AI DEVELOPER',
+                '^1000 SYSTEM ARCHITECT'
             ],
             typeSpeed: 60,
             backSpeed: 30,
@@ -793,4 +886,5 @@
         });
     </script>
 </body>
+
 </html>
