@@ -1,892 +1,356 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Md Sourav Oyaj | Robotic Glass Portfolio</title>
-    <meta name="description"
-        content="Futuristic AI/ML Engineer Portfolio - Md Sourav Oyaj. Premium robotic iOS 26 liquid glass aesthetic with neural network animations." />
-
-    <!-- Libraries -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Sourav Oyaj | AI/ML Engineer</title>
+    <meta name="description" content="Futuristic AI/ML Engineer Portfolio">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: {
-                        cyan: "#00F0FF",
-                        electric: "#0EA5E9",
-                        ink: "#0C3547",
-                        mist: "#4A8FA8",
-                        frost: "#BAE6FD",
-                        neonPurple: "#BC6FF1"
+                        slate: { 850: '#151e2e', 900: '#0f172a', 950: '#020617' },
+                        cyan: { 400: '#22d3ee', 500: '#06b6d4' }
                     },
-                    fontFamily: {
-                        display: ['Bebas Neue', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                },
-            },
-        };
+                    animation: { 'spin-slow': 'spin 8s linear infinite' }
+                }
+            }
+        }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
+
     <style>
-        :root {
-            --cyan: #00F0FF;
-            --electric: #0EA5E9;
-            --neon-purple: #BC6FF1;
-            --ink: #0C3547;
-            --mist: #4A8FA8;
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-blur: blur(32px);
-            --glass-border: rgba(0, 240, 255, 0.2);
-            --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 0 12px rgba(0, 240, 255, 0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            background: #EFF9FF;
-            color: var(--ink);
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ── Neural Canvas Background ── */
-        canvas#neural-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        /* ── Circuit Pattern Overlay ── */
-        .circuit-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%230EA5E9' stroke-width='1'%3E%3Cpath d='M40 40c0-8.284-6.716-15-15-15S10 31.716 10 40s6.716 15 15 15 15-6.716 15-15zM0 40h10m60 0h10M40 0v10m0 60v10M10 10l7.07 7.07m45.86 45.86L70 70M10 70l7.07-7.07m45.86-45.86L70 10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        /* ── Robotic Glass Cards ── */
-        .robotic-glass {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur) saturate(220%);
-            -webkit-backdrop-filter: var(--glass-blur) saturate(220%);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            box-shadow: var(--glass-highlight), 0 10px 40px rgba(0, 150, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .robotic-glass::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.05), transparent);
-            transform: rotate(45deg);
-            transition: 0.8s;
-            pointer-events: none;
-        }
-
-        .robotic-glass:hover {
-            background: rgba(255, 255, 255, 0.55);
-            border-color: rgba(0, 240, 255, 0.6);
-            box-shadow: var(--glass-highlight), 0 20px 60px rgba(0, 200, 255, 0.15), 0 0 20px rgba(0, 240, 255, 0.2);
-            transform: scale(1.02) translateY(-5px);
-        }
-
-        .robotic-glass:hover::after {
-            left: 100%;
-        }
-
-        /* ── Typography ── */
-        .display-font {
-            font-family: 'Bebas Neue', sans-serif !important;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .robotic-text {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--electric);
-            text-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
-        }
-
-        /* ── Profile Image Robotic Effect ── */
-        .profile-container {
-            position: relative;
-            width: 320px;
-            height: 320px;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--glass-bg);
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.2);
-            z-index: 10;
-            position: relative;
-        }
-
-        .profile-frame {
-            position: absolute;
-            inset: -15px;
-            border: 2px dashed rgba(0, 240, 255, 0.4);
-            border-radius: 50%;
-            animation: rotateFull 20s linear infinite;
-        }
-
-        .profile-pulse {
-            position: absolute;
-            inset: -25px;
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 50%;
-            animation: pingPulse 4s ease-out infinite;
-        }
-
-        @keyframes rotateFull {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes pingPulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(1.3);
-                opacity: 0;
-            }
-        }
-
-        /* ── Futuristic Buttons ── */
-        .btn-liquid {
-            background: linear-gradient(135deg, #00F0FF, #0EA5E9);
-            color: white;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-liquid:hover {
-            box-shadow: 0 12px 40px rgba(14, 165, 233, 0.6), 0 0 20px rgba(0, 240, 255, 0.4);
-            transform: translateY(-2px);
-            filter: saturate(1.2);
-        }
-
-        .btn-glass {
-            background: rgba(255, 255, 255, 0.15);
+        body { background-color: #020617; color: #f8fafc; }
+        /* Neural Network Canvas */
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; opacity: 0.4; }
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            color: var(--ink);
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
-
-        .btn-glass:hover {
-            background: rgba(0, 240, 255, 0.1);
-            border-color: var(--cyan);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
         }
-
-        /* ── Input Styling ── */
-        input,
-        textarea {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(0, 240, 255, 0.2) !important;
-            color: var(--ink) !important;
-            border-radius: 16px !important;
-            padding: 16px !important;
-            transition: all 0.3s ease !important;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: var(--cyan) !important;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2) !important;
-            outline: none !important;
-        }
-
-        /* ── Section Alt ── */
-        .section-alt {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        /* ── Hide Nav Styles ── */
-        .sidebar,
-        #mobile-toggle {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .profile-container {
-                width: 240px;
-                height: 240px;
-            }
-
-            .display-font {
-                font-size: 3rem !important;
-            }
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
     </style>
 </head>
+<body class="antialiased relative selection:bg-cyan-500/30 selection:text-cyan-50">
 
-<body class="selection:bg-cyan selection:text-white">
-    <!-- Dynamic Tech Background -->
-    <canvas id="neural-bg"></canvas>
-    <div class="circuit-overlay"></div>
+    <div id="particles-js"></div>
 
-    <!-- Main Content (Full Width) -->
-    <main class="w-full min-h-screen">
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
-            <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-16 relative z-10">
-                <div class="max-w-2xl text-center md:text-left" data-aos="fade-right">
-                    <div class="inline-block py-1 px-4 mb-6 rounded-full robotic-glass border-cyan/30">
-                        <span class="robotic-text text-sm font-bold tracking-widest uppercase">Initializing
-                            Interface...</span>
-                    </div>
-                    <h1
-                        class="text-6xl md:text-9xl font-bold mb-6 display-font leading-none text-ink relative inline-block">
-                        <span class="relative z-10">Md Sourav <span class="text-transparent"
-                                style="-webkit-text-stroke: 2px var(--ink); opacity: 0.8;">Oyaj</span></span>
-                        <span class="absolute inset-0 z-0 blur-2xl opacity-30 text-cyan select-none pointer-events-none"
-                            aria-hidden="true">Md Sourav Oyaj</span>
-                    </h1>
-                    <h2
-                        class="text-2xl md:text-4xl font-medium mb-8 flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 min-h-[100px] md:min-h-[60px]">
-                        <span class="text-mist whitespace-nowrap">System Role:</span>
-                        <div class="font-bold text-ink robotic-glass px-4 py-2 rounded-lg text-center md:text-left w-full md:w-auto min-w-[300px] md:min-w-[460px]">
-                            <span id="typed"></span>
-                        </div>
-                    </h2>
-                    <p class="text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-mist" data-aos="fade-up"
-                        data-aos-delay="200">
-                        Architecting the future through <span class="text-ink font-semibold">Deep Learning</span>, <span
-                            class="text-ink font-semibold">Autonomous Systems</span>, and premium <span
-                            class="text-ink font-semibold">AI Integration</span>.
+    <header class="fixed top-0 left-0 right-0 z-50 pt-4 px-4">
+        <div class="max-w-5xl mx-auto glass-card rounded-full px-6 py-3 flex justify-between items-center">
+            <div class="font-mono font-bold text-cyan-400 tracking-tighter text-lg">&lt;SO/&gt;</div>
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#services" class="hover:text-cyan-400 transition-colors">Specializations</a>
+                <a href="#stack" class="hover:text-cyan-400 transition-colors">Stack</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+            </nav>
+            <a href="#contact" class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all font-medium">Initialize Form</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-20">
+
+        <section id="hero" class="min-h-[80vh] flex flex-col justify-center items-center text-center" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 text-xs font-mono text-slate-400 mb-8">
+                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span></span>
+                Model Training Active
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-500">
+                Md Sourav Oyaj
+            </h1>
+            <h2 class="text-2xl md:text-4xl text-slate-400 font-medium h-12">
+                <span id="typed-text" class="text-cyan-400"></span>
+            </h2>
+            <p class="mt-6 text-slate-500 max-w-2xl text-lg md:text-xl">
+                Architecting intelligent systems. Specializing in neural networks, scalable ML pipelines, and bridging the gap between research and production.
+            </p>
+            <div class="mt-10 flex gap-4">
+                <a href="#projects" class="px-8 py-3 bg-cyan-500 text-slate-950 font-semibold rounded-full hover:bg-cyan-400 transition-all shadow-[0_0_20px_-5px_rgba(6,182,212,0.5)]">Deploy Projects</a>
+                <a href="https://github.com" target="_blank" class="px-8 py-3 glass-card text-white font-medium rounded-full hover:text-cyan-400">GitHub Repository</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center">
+                <div class="w-full md:w-1/3 relative">
+                    <div class="absolute inset-0 bg-cyan-500/20 blur-2xl rounded-full"></div>
+                    <img src="images/pic2.jpg" alt="Md Sourav Oyaj" class="relative rounded-full w-48 h-48 mx-auto object-cover border-2 border-slate-700/50 grayscale hover:grayscale-0 transition-all duration-500 z-10">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Neural Architecture (About Me)</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        I don't just train models; I build intelligent systems that solve real-world problems. My background lies in optimizing deep learning architectures, engineering data pipelines, and deploying AI solutions that are both accurate and computationally efficient.
                     </p>
-                    <div class="flex flex-wrap gap-6 justify-center md:justify-start" data-aos="fade-up"
-                        data-aos-delay="400">
-                        <a href="#projects" class="btn-liquid uppercase">
-                            <i class='bx bx-brain'></i> Access Projects
-                        </a>
-                        <a href="#contact" class="btn-glass uppercase border-ink/10">
-                            Say Hello
-                        </a>
-                    </div>
-                </div>
-
-                <div class="profile-container" data-aos="zoom-in" data-aos-duration="1500">
-                    <div class="profile-frame"></div>
-                    <div class="profile-pulse"></div>
-                    <img src="images/pic2.jpg" alt="Robotic Md Sourav Oyaj" class="profile-image">
-
-                    <!-- Floating Data Tags -->
-                    <div class="absolute -top-10 -right-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text rotate-12"
-                        data-aos="fade-left" data-aos-delay="800">
-                        LATENCY: 12ms
-                    </div>
-                    <div class="absolute -bottom-10 -left-10 robotic-glass px-4 py-2 text-xs font-bold robotic-text -rotate-12"
-                        data-aos="fade-right" data-aos-delay="1000">
-                        UPTIME: 99.9%
+                    <div class="flex flex-wrap gap-3 font-mono text-sm">
+                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">Computer Vision</span>
+                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">LLMs / NLP</span>
+                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">Predictive Modeling</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-32 px-8 section-alt">
-            <div class="container mx-auto max-w-6xl">
-                <div class="flex flex-col md:flex-row gap-20 items-center">
-                    <div class="w-full md:w-1/2" data-aos="fade-up">
-                        <h3 class="text-5xl font-bold mb-10 display-font text-ink flex items-center gap-4">
-                            <span class="w-12 h-0.5 bg-cyan"></span> Neural Architecture
-                        </h3>
-                        <div class="space-y-6 text-xl leading-relaxed text-mist">
-                            <p>Currently synthesizing logical systems and <span class="text-ink font-bold">Autonomous
-                                    Intelligence</span> as a B.Sc. student at <span
-                                    class="text-electric font-semibold">International Islamic University Chittagong
-                                    (IIUC)</span>.</p>
-                            <p>Specialized in deep-neural processing, high-dimensional data analysis, and the deployment
-                                of scalable AI protocols across diverse tech stacks.</p>
-                        </div>
-
-                        <div class="mt-12 grid grid-cols-2 gap-6">
-                            <div class="robotic-glass p-6 text-center">
-                                <span class="block text-4xl font-bold text-ink mb-1">20+</span>
-                                <span class="text-xs uppercase robotic-text">Nodes Deployed</span>
-                            </div>
-                            <div class="robotic-glass p-6 text-center">
-                                <span class="block text-4xl font-bold text-ink mb-1">95%</span>
-                                <span class="text-xs uppercase robotic-text">Accuracy Optimized</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-full md:w-1/2 space-y-8" data-aos="fade-left">
-                        <div class="robotic-glass p-8 group">
-                            <div class="flex items-center gap-4 mb-4">
-                                <i class='bx bxs-graduation text-3xl text-cyan'></i>
-                                <h4 class="text-2xl font-bold text-ink">Academic Core</h4>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="border-l-2 border-cyan/30 pl-4">
-                                    <h5 class="font-bold text-ink">B.Sc. in Computer Science</h5>
-                                    <p class="text-sm text-mist">2022 - PRESENT | IIUC</p>
-                                </div>
-                                <div class="border-l-2 border-cyan/10 pl-4 opacity-70">
-                                    <h5 class="font-bold text-ink">High School (Science)</h5>
-                                    <p class="text-sm text-mist">2020 | GPA 4.42</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="robotic-glass p-8 group">
-                            <div class="flex items-center gap-4 mb-4">
-                                <i class='bx bxs-chip text-3xl text-cyan'></i>
-                                <h4 class="text-2xl font-bold text-ink">Active Protocol</h4>
-                            </div>
-                            <div class="border-l-2 border-cyan/30 pl-4">
-                                <h5 class="font-bold text-ink">Mobile App Dev (EDGE)</h5>
-                                <p class="text-sm text-mist mb-4">CUET | 6 Months | 2024</p>
-                                <a href="images/edge-certificate.png" target="_blank"
-                                    class="text-xs font-bold text-cyan border border-cyan/30 px-4 py-2 rounded-full hover:bg-cyan hover:text-white transition-all inline-block">
-                                    DOWNLOAD CERTIFICATE
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- GitHub Real-time Stats -->
-                    <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10" data-aos="fade-up">
-                        <div class="robotic-glass p-8 flex justify-center items-center"
-                            style="background:rgba(0,150,255,0.05);">
-                            <img src="https://github-readme-stats.vercel.app/api?username=mr-captrox&show_icons=true&theme=radical&hide_border=true&bg_color=0b111e"
-                                alt="GitHub Stats" class="max-w-full hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="robotic-glass p-8 flex justify-center items-center"
-                            style="background:rgba(0,150,255,0.05);">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mr-captrox&layout=compact&theme=radical&hide_border=true&bg_color=0b111e"
-                                alt="Top Languages"
-                                class="max-w-full hover:scale-105 transition-transform duration-500">
-                        </div>
-                    </div>
+        <section id="services" class="py-20">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">Core <span class="text-cyan-500">Specializations</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-cyan-500 text-3xl mb-4">⚛️</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Deep Learning</h3>
+                    <p class="text-slate-400 text-sm">Designing and training custom CNNs, RNNs, and Transformers for complex pattern recognition tasks.</p>
                 </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="py-32 px-8">
-            <div class="container mx-auto max-w-6xl">
-                <h3 class="text-5xl font-bold mb-20 text-center display-font text-ink" data-aos="fade-up">
-                    Core <span class="text-cyan">Specializations</span>
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="p-10 robotic-glass text-center group" data-aos="zoom-in">
-                        <div
-                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
-                            <i class='bx bxs-brain text-5xl text-cyan'></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-ink">Deep Learning</h4>
-                        <p class="text-mist leading-relaxed">Neural architectures, CNNs, RNNs, and Model
-                            Hyper-optimization.</p>
-                    </div>
-                    <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="100">
-                        <div
-                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
-                            <i class='bx bx-message-square-detail text-5xl text-cyan'></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-ink">NLP & RAG</h4>
-                        <p class="text-mist leading-relaxed">LLM Fine-tuning, Vector Databases, and Semantic Retrieval.
-                        </p>
-                    </div>
-                    <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="200">
-                        <div
-                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 rotate-3 transition-transform group-hover:rotate-0">
-                            <i class='bx bx-analyse text-5xl text-cyan'></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-ink">MLOps</h4>
-                        <p class="text-mist leading-relaxed">Automated Training Pipelines, Model Drift Tracking, and
-                            Deployment.</p>
-                    </div>
-                    <div class="p-10 robotic-glass text-center group" data-aos="zoom-in" data-aos-delay="300">
-                        <div
-                            class="w-20 h-20 mx-auto bg-cyan/10 rounded-2xl flex items-center justify-center mb-8 -rotate-3 transition-transform group-hover:rotate-0">
-                            <i class='bx bx-layer text-5xl text-cyan'></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-ink">AI Integration</h4>
-                        <p class="text-mist leading-relaxed">FastAPI Backends, Streamlit Frontends, and Real-time
-                            Processing.</p>
-                    </div>
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-cyan-500 text-3xl mb-4">💬</div>
+                    <h3 class="text-xl font-bold text-white mb-2">NLP & RAG</h3>
+                    <p class="text-slate-400 text-sm">Implementing Retrieval-Augmented Generation systems and fine-tuning Large Language Models for enterprise data.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-cyan-500 text-3xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold text-white mb-2">MLOps</h3>
+                    <p class="text-slate-400 text-sm">Automating model lifecycles. CI/CD for machine learning, containerization, and cloud deployment architecture.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-cyan-500 text-3xl mb-4">🔌</div>
+                    <h3 class="text-xl font-bold text-white mb-2">AI Integration</h3>
+                    <p class="text-slate-400 text-sm">Seamlessly connecting Python-based inference APIs with front-end systems and Flutter mobile applications.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tech Stack -->
-        <section id="tech-stack" class="py-32 px-8 section-alt">
-            <div class="container mx-auto max-w-6xl text-center">
-                <h3 class="text-5xl font-bold mb-20 display-font text-ink" data-aos="fade-up">
-                    Neural <span class="text-cyan">Toolkit</span>
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="0">
-                        <i class='bx bxl-python text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">Python</h5>
-                        <p class="text-[10px] robotic-text mt-2">CORE ENGINE</p>
-                    </div>
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="50">
-                        <i
-                            class='bx bxl-pytorch text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">PyTorch</h5>
-                        <p class="text-[10px] robotic-text mt-2">DEEP NEURAL</p>
-                    </div>
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="100">
-                        <i
-                            class='bx bxl-tensorflow text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">TensorFlow</h5>
-                        <p class="text-[10px] robotic-text mt-2">MODEL FLOW</p>
-                    </div>
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="150">
-                        <i class='bx bx-data text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">Pandas</h5>
-                        <p class="text-[10px] robotic-text mt-2">DATA MATRIX</p>
-                    </div>
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="200">
-                        <i class='bx bxs-flask text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">FastAPI</h5>
-                        <p class="text-[10px] robotic-text mt-2">REST INTERFACE</p>
-                    </div>
-                    <div class="p-6 robotic-glass group" data-aos="fade-up" data-aos-delay="250">
-                        <i class='bx bxl-git text-5xl text-cyan mb-4 transition-transform group-hover:scale-110'></i>
-                        <h5 class="font-bold text-ink">Git/VC</h5>
-                        <p class="text-[10px] robotic-text mt-2">VERSION PROTOCOL</p>
-                    </div>
+        <section id="stack" class="py-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div data-aos="fade-right">
+                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-cyan-500 pl-4">Technology Stack</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Python</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">PyTorch</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">TensorFlow</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Pandas</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Scikit-Learn</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">FastAPI</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Docker</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Git</span>
                 </div>
             </div>
-        </section>
-
-        <!-- Competitive Programming -->
-        <section id="cp" class="py-32 px-8 section-alt">
-            <div class="container mx-auto max-w-6xl">
-                <h3 class="text-5xl font-bold mb-20 text-center display-font text-ink" data-aos="fade-up">
-                    Algorithm <span class="text-cyan">Prowess</span>
-                </h3>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left">
-                        <div
-                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
-                            <img src="https://simpleicons.org/icons/codeforces.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
-                                alt="Codeforces">
-                        </div>
-                        <p class="font-mono text-cyan font-bold tracking-widest text-sm">CODEFORCES</p>
-                    </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
-                        data-aos-delay="100">
-                        <div
-                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
-                            <img src="https://simpleicons.org/icons/leetcode.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="LeetCode">
-                        </div>
-                        <p class="font-mono text-cyan font-bold tracking-widest text-sm">LEETCODE</p>
-                    </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
-                        data-aos-delay="200">
-                        <div
-                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
-                            <img src="https://simpleicons.org/icons/hackerrank.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);"
-                                alt="HackerRank">
-                        </div>
-                        <p class="font-mono text-cyan font-bold tracking-widest text-sm">HACKERRANK</p>
-                    </div>
-                    <div class="p-8 robotic-glass flex flex-col items-center gap-6 group" data-aos="flip-left"
-                        data-aos-delay="300">
-                        <div
-                            class="w-16 h-16 robotic-glass flex items-center justify-center bg-white/10 group-hover:bg-cyan/10 transition-colors">
-                            <img src="https://simpleicons.org/icons/geeksforgeeks.svg" class="w-10 h-10 opacity-80"
-                                style="filter: sepia(1) saturate(3) hue-rotate(185deg) brightness(0.8);" alt="GFG">
-                        </div>
-                        <p class="font-mono text-cyan font-bold tracking-widest text-sm">GFG</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-32 px-8">
-            <div class="container mx-auto max-w-6xl">
-                <h3 class="text-5xl font-bold mb-20 text-center display-font text-ink" data-aos="fade-up">
-                    Latest <span class="text-cyan">Deployments</span>
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Project 1 -->
-                    <div class="robotic-glass group" data-aos="fade-up">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                alt="AI Chatbot">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
-                            <div class="absolute bottom-6 left-8">
-                                <h4 class="text-3xl font-bold text-white display-font mb-1">AI Chatbot</h4>
-                                <p class="text-xs robotic-text uppercase">Gen-AI Protocol</p>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Multi-agent system with Research, RAG, and
-                                OCR capabilities. Built with FastAPI, FAISS, and Groq Llama-3.</p>
-                            <div class="flex flex-wrap gap-2 mb-10">
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FASTAPI</span>
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">LANGCHAIN</span>
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FAISS</span>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
-                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
-                                    VIEW DEMO <i class='bx bx-right-top-arrow-circle text-lg'></i>
-                                </a>
-                                <a href="https://github.com/mr-captrox/ai-chatbot" target="_blank"
-                                    class="text-2xl text-mist hover:text-cyan transition-colors">
-                                    <i class='bx bxl-github'></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="robotic-glass group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="images/note-app.jpg"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                alt="Note App">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
-                            <div class="absolute bottom-6 left-8">
-                                <h4 class="text-3xl font-bold text-white display-font mb-1">Note Fusion</h4>
-                                <p class="text-xs robotic-text uppercase">Mobile Interface</p>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Advanced note-taking environment optimized
-                                for cloud-sync and private data encryption.</p>
-                            <div class="flex flex-wrap gap-2 mb-10">
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">ANDROID</span>
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">FIREBASE</span>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/Note-app" target="_blank"
-                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
-                                    VIEW CASE <i class='bx bx-right-top-arrow-circle text-lg'></i>
-                                </a>
-                                <a href="https://github.com/mr-captrox/Note-app" target="_blank"
-                                    class="text-2xl text-mist hover:text-cyan transition-colors">
-                                    <i class='bx bxl-github'></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="robotic-glass group" data-aos="fade-up" data-aos-delay="400">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="images/b.png"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                alt="RoktoSetu">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"></div>
-                            <div class="absolute bottom-6 left-8">
-                                <h4 class="text-3xl font-bold text-white display-font mb-1">RoktoSetu</h4>
-                                <p class="text-xs robotic-text uppercase">Network Platform</p>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-mist text-base mb-8 line-clamp-3">Intelligent blood donation network
-                                connecting donors with hospitals in real-time latency.</p>
-                            <div class="flex flex-wrap gap-2 mb-10">
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">WEB</span>
-                                <span
-                                    class="px-3 py-1 bg-cyan/5 border border-cyan/20 rounded text-[10px] font-bold text-cyan">REALTIME</span>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
-                                    class="text-xs font-black text-ink hover:text-cyan tracking-widest transition-colors flex items-center gap-2">
-                                    VIEW CASE <i class='bx bx-right-top-arrow-circle text-lg'></i>
-                                </a>
-                                <a href="https://github.com/mr-captrox/RoktoSetu" target="_blank"
-                                    class="text-2xl text-mist hover:text-cyan transition-colors">
-                                    <i class='bx bxl-github'></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="testimonials" class="py-32 px-8 section-alt">
-            <div class="container mx-auto max-w-5xl">
-                <h3 class="text-5xl font-bold mb-20 text-center display-font text-ink" data-aos="fade-up">
-                    Authority <span class="text-cyan">Validation</span>
-                </h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    <div class="p-10 robotic-glass relative group" data-aos="fade-right">
-                        <i class='bx bxs-quote-alt-left absolute top-8 right-10 text-6xl text-cyan/10'></i>
-                        <p class="italic text-lg mb-8 leading-relaxed text-mist">
-                            "Md Sourav's dedication to deep learning research and his ability to architect complex AI
-                            pipelines is truly remarkable. His work on RAG systems is state-of-the-art."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
-                                <i class='bx bxs-user-voice text-3xl'></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-ink">Project Supervisor</h5>
-                                <p class="text-xs robotic-text">DEPT. OF CSE, IIUC</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-10 robotic-glass relative group" data-aos="fade-left">
-                        <i class='bx bxs-quote-alt-left absolute top-8 right-10 text-6xl text-cyan/10'></i>
-                        <p class="italic text-lg mb-8 leading-relaxed text-mist">
-                            "A highly skilled developer with a keen eye for modern aesthetics and efficient code. His
-                            performance in the EDGE project was exceptional."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-14 h-14 rounded-full bg-cyan/10 flex items-center justify-center text-cyan border border-cyan/20">
-                                <i class='bx bxs-medal text-3xl'></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-ink">EDGE Mentor</h5>
-                                <p class="text-xs robotic-text">CUET/BCC TRAINING</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-32 px-8">
-            <div class="container mx-auto max-w-4xl text-center">
-                <h3 class="text-6xl font-bold mb-6 display-font text-ink" data-aos="fade-up">System Connect</h3>
-                <p class="text-xl mb-16 text-mist max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    Open for high-priority collaborations and innovative AI research. Initiate direct protocol below.
-                </p>
-
-                <form action="https://formspree.io/f/xanqgyov" method="POST"
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left" data-aos="fade-up" data-aos-delay="400">
-                    <div class="space-y-8">
-                        <div>
-                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Designation
-                                Name</label>
-                            <input type="text" name="name" placeholder="IDENTIFY YOURSELF" required class="w-full">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Communication
-                                Link</label>
-                            <input type="email" name="email" placeholder="EMAIL@INTERFACE.COM" required class="w-full">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold robotic-text uppercase mb-4 ml-2">Transmission
-                            Data</label>
-                        <textarea name="message" placeholder="ENTER MESSAGE PROTOCOL..." rows="6" required
-                            class="w-full h-[calc(100%-48px)]"></textarea>
-                    </div>
-                    <div class="md:col-span-2 text-center mt-6">
-                        <button type="submit" class="btn-liquid w-full md:w-auto px-20">
-                            TRANSMIT MESSAGE <i class='bx bx-send ml-2'></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <footer class="py-20 text-center border-t border-cyan/10">
-            <div class="container mx-auto">
-                <div class="flex justify-center gap-10 mb-10">
-                    <a href="https://github.com/mr-captrox" target="_blank"
-                        class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
-                        <i class='bx bxl-github'></i>
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-cyan-500 pl-4">Algorithmic Profiles</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
+                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">Codeforces</span>
+                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
-                    <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank"
-                        class="text-3xl text-mist hover:text-cyan transition-all hover:scale-125">
-                        <i class='bx bxl-linkedin'></i>
+                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
+                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">LeetCode</span>
+                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    </a>
+                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
+                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">HackerRank</span>
+                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    </a>
+                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
+                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">GeeksforGeeks</span>
+                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
                 </div>
-                <p class="text-mist font-bold robotic-text text-xs tracking-tighter">
-                    &copy; 2025 MD SOURAV OYAJ <span class="mx-4 text-cyan/30">|</span>
-                    SYSTEM ARCHITECTED WITH <i class='bx bxs-bolt text-cyan animation-pulse'></i> AND PRECISION.
-                </p>
             </div>
-        </footer>
+        </section>
+
+        <section id="projects" class="py-20">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Model <span class="text-cyan-500">Deployments</span></h2>
+                <p class="text-slate-400">Selected research implementations and production-ready applications.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div class="absolute w-full h-full bg-cyan-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                    </div>
+                    <div class="p-6 relative z-20 -mt-8 flex-grow">
+                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">PyTorch • Computer Vision</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Automated Retina Analysis</h3>
+                        <p class="text-sm text-slate-400 mb-4">Deep learning model for multi-class ocular disease recognition through vessel segmentation and feature-level fusion framework.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div class="absolute w-full h-full bg-blue-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                    </div>
+                    <div class="p-6 relative z-20 -mt-8 flex-grow">
+                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">NLP • RAG • FastAPI</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Enterprise Knowledge Bot</h3>
+                        <p class="text-sm text-slate-400 mb-4">Retrieval-Augmented Generation architecture connected to an internal document store, providing hallucination-free answers.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div class="absolute w-full h-full bg-purple-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                    </div>
+                    <div class="p-6 relative z-20 -mt-8 flex-grow">
+                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">Flutter • Gemini API</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Waste Alert AI Integration</h3>
+                        <p class="text-sm text-slate-400 mb-4">A mobile application leveraging Gemini Pro capabilities to dynamically categorize and provide insights on scanned items.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 relative" data-aos="fade-up">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="glass-card p-10 md:p-16 rounded-3xl text-center relative z-10 border-t-4 border-t-cyan-500">
+                <p class="text-xl md:text-3xl text-slate-300 font-light italic leading-relaxed mb-6">
+                    "Data is just noise until you build the right architecture to listen to it. I construct systems that turn complexity into clarity."
+                </p>
+                <div class="font-mono text-cyan-400">— Md Sourav Oyaj</div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 max-w-2xl mx-auto" data-aos="fade-up">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-white mb-2">Initialize Connection</h2>
+                <p class="text-slate-400">Open to collaborations, research, and engineering roles.</p>
+            </div>
+            
+            <form action="https://formspree.io/f/xanqgyov" method="POST" class="glass-card p-8 rounded-2xl flex flex-col gap-4">
+                <div>
+                    <label class="block text-xs font-mono text-slate-400 mb-1">USER.NAME</label>
+                    <input type="text" name="name" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-400 mb-1">USER.EMAIL</label>
+                    <input type="email" name="email" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-400 mb-1">PAYLOAD.MESSAGE</label>
+                    <textarea name="message" rows="4" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
+                </div>
+                <button type="submit" class="mt-2 w-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/50 py-3 rounded-lg font-bold hover:bg-cyan-500 hover:text-slate-950 transition-colors">
+                    EXECUTE POST REQUEST
+                </button>
+            </form>
+        </section>
+
     </main>
 
+    <footer class="border-t border-slate-800 bg-slate-950/80 backdrop-blur py-8 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-sm font-mono">© 2026 Md Sourav Oyaj. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">GitHub</a>
+                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">LinkedIn</a>
+                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">Codeforces</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center text-cyan-400 opacity-0 transition-opacity z-50 pointer-events-none hover:bg-cyan-500/20 border-cyan-500/30">
+        ↑
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
     <script>
-        // ── Neural Network Canvas Animation ──
-        const canvas = document.getElementById('neural-bg');
-        const ctx = canvas.getContext('2d');
-        let nodes = [];
-        const nodeCount = 80;
-        const connectionDistance = 150;
+        // 1. Initialize AOS Scroll Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
 
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Node {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 240, 255, ' + (Math.random() * 0.5 + 0.3) + ')';
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < nodeCount; i++) nodes.push(new Node());
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            nodes.forEach(node => {
-                node.update();
-                node.draw();
-                nodes.forEach(other => {
-                    const dx = node.x - other.x;
-                    const dy = node.y - other.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(node.x, node.y);
-                        ctx.lineTo(other.x, other.y);
-                        ctx.strokeStyle = `rgba(14, 165, 233, ${1 - dist / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                });
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // ── Initialize AOS ──
-        AOS.init({ duration: 1000, once: true, offset: 120 });
-
-        // ── Initialize Typed.js ──
-        new Typed('#typed', {
-            strings: [
-                '^1000 AI/ML ENGINEER',
-                '^1000 DEEP LEARNING RESEARCHER',
-                '^1000 FULL-STACK AI DEVELOPER',
-                '^1000 SYSTEM ARCHITECT'
-            ],
-            typeSpeed: 60,
+        // 2. Initialize Typed.js for Hero Section
+        new Typed('#typed-text', {
+            strings: ['AI/ML ENGINEER', 'DEEP LEARNING RESEARCHER', 'PYTHON DEVELOPER'],
+            typeSpeed: 50,
             backSpeed: 30,
+            backDelay: 1500,
             loop: true,
-            cursorChar: '|'
+            showCursor: true,
+            cursorChar: '_'
         });
 
-        // ── Smooth Scroll Persistence ──
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // 3. Initialize Particles.js (Neural Network Look)
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: '#22d3ee' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#22d3ee',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 0.8 } },
+                    push: { particles_nb: 3 }
+                }
+            },
+            retina_detect: true
         });
 
-        // ── Scroll to Top Visibility ──
-        const scrollBtn = document.createElement('button');
-        scrollBtn.id = 'scroll-to-top';
-        scrollBtn.className = 'fixed bottom-8 right-8 w-14 h-14 robotic-glass flex items-center justify-center text-cyan text-2xl z-[9999] opacity-0 invisible transition-all duration-300 hover:scale-110';
-        scrollBtn.innerHTML = "<i class='bx bx-chevron-up'></i>";
-        document.body.appendChild(scrollBtn);
-
+        // 4. Scroll to Top Logic
+        const topBtn = document.getElementById('scrollToTopBtn');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollBtn.classList.add('opacity-100', 'visible');
+            if (window.scrollY > 300) {
+                topBtn.classList.remove('opacity-0', 'pointer-events-none');
+                topBtn.classList.add('opacity-100', 'pointer-events-auto');
             } else {
-                scrollBtn.classList.remove('opacity-100', 'visible');
+                topBtn.classList.add('opacity-0', 'pointer-events-none');
+                topBtn.classList.remove('opacity-100', 'pointer-events-auto');
             }
         });
 
-        scrollBtn.addEventListener('click', () => {
+        topBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
-
 </html>
