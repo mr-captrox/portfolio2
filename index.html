@@ -19,13 +19,20 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: {
                         slate: { 850: '#151e2e', 900: '#0f172a', 950: '#020617' },
+                        flutter: { blue: '#02569B', orange: '#FB8500', light: '#87CEEB' },
                         cyan: { 400: '#22d3ee', 500: '#06b6d4' }
                     },
-                    animation: { 'spin-slow': 'spin 8s linear infinite' }
+                    animation: { 'spin-slow': 'spin 8s linear infinite', 'float': 'float 3s ease-in-out infinite' }
                 }
             }
         }
     </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 
     <style>
         body { background-color: #020617; color: #f8fafc; }
@@ -40,9 +47,9 @@
             transition: all 0.3s ease;
         }
         .glass-card:hover {
-            border-color: rgba(6, 182, 212, 0.4);
+            border-color: rgba(2, 86, 155, 0.6);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(251, 133, 0, 0.3);
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -57,36 +64,36 @@
 
     <header class="fixed top-0 left-0 right-0 z-50 pt-4 px-4">
         <div class="max-w-5xl mx-auto glass-card rounded-full px-6 py-3 flex justify-between items-center">
-            <div class="font-mono font-bold text-cyan-400 tracking-tighter text-lg">&lt;SO/&gt;</div>
+            <div class="font-mono font-bold bg-gradient-to-r from-flutter-blue to-flutter-orange bg-clip-text text-transparent tracking-tighter text-lg">&lt;SO/&gt;</div>
             <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-                <a href="#services" class="hover:text-cyan-400 transition-colors">Specializations</a>
-                <a href="#stack" class="hover:text-cyan-400 transition-colors">Stack</a>
-                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#about" class="hover:text-flutter-orange transition-colors">About</a>
+                <a href="#services" class="hover:text-flutter-orange transition-colors">Specializations</a>
+                <a href="#stack" class="hover:text-flutter-orange transition-colors">Stack</a>
+                <a href="#projects" class="hover:text-flutter-orange transition-colors">Projects</a>
             </nav>
-            <a href="#contact" class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all font-medium">Initialize Form</a>
+            <a href="#contact" class="bg-flutter-orange/20 text-flutter-orange border border-flutter-orange/50 px-4 py-1.5 rounded-full text-sm hover:bg-flutter-orange hover:text-slate-950 transition-all font-medium">Initialize Form</a>
         </div>
     </header>
 
     <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-20">
 
         <section id="hero" class="min-h-[80vh] flex flex-col justify-center items-center text-center" data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 text-xs font-mono text-slate-400 mb-8">
-                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span></span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-flutter-blue/50 bg-flutter-blue/10 text-xs font-mono text-flutter-light mb-8">
+                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-flutter-orange opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-flutter-orange"></span></span>
                 Model Training Active
             </div>
             <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-500">
                 Md Sourav Oyaj
             </h1>
             <h2 class="text-2xl md:text-4xl text-slate-400 font-medium h-12">
-                <span id="typed-text" class="text-cyan-400"></span>
+                <span id="typed-text" class="bg-gradient-to-r from-flutter-blue via-flutter-orange to-flutter-blue bg-clip-text text-transparent"></span>
             </h2>
             <p class="mt-6 text-slate-500 max-w-2xl text-lg md:text-xl">
                 Architecting intelligent systems. Specializing in neural networks, scalable ML pipelines, and bridging the gap between research and production.
             </p>
             <div class="mt-10 flex gap-4">
-                <a href="#projects" class="px-8 py-3 bg-cyan-500 text-slate-950 font-semibold rounded-full hover:bg-cyan-400 transition-all shadow-[0_0_20px_-5px_rgba(6,182,212,0.5)]">Deploy Projects</a>
-                <a href="https://github.com" target="_blank" class="px-8 py-3 glass-card text-white font-medium rounded-full hover:text-cyan-400">GitHub Repository</a>
+                <a href="#projects" class="px-8 py-3 bg-flutter-orange text-white font-semibold rounded-full hover:bg-flutter-orange/90 transition-all shadow-[0_0_20px_-5px_rgba(251,133,0,0.6)] hover:shadow-[0_0_30px_-5px_rgba(251,133,0,0.8)]">Deploy Projects</a>
+                <a href="https://github.com/mr-captrox" target="_blank" class="px-8 py-3 glass-card text-white font-medium rounded-full hover:text-flutter-orange border-flutter-blue/50">GitHub Repository</a>
             </div>
         </section>
 
@@ -102,91 +109,107 @@
                         I don't just train models; I build intelligent systems that solve real-world problems. My background lies in optimizing deep learning architectures, engineering data pipelines, and deploying AI solutions that are both accurate and computationally efficient.
                     </p>
                     <div class="flex flex-wrap gap-3 font-mono text-sm">
-                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">Computer Vision</span>
-                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">LLMs / NLP</span>
-                        <span class="px-3 py-1 bg-slate-800 text-cyan-400 rounded-md">Predictive Modeling</span>
+                        <span class="px-3 py-1 bg-flutter-blue/20 text-flutter-light rounded-md border border-flutter-blue/50">Computer Vision</span>
+                        <span class="px-3 py-1 bg-flutter-blue/20 text-flutter-light rounded-md border border-flutter-blue/50">LLMs / NLP</span>
+                        <span class="px-3 py-1 bg-flutter-orange/20 text-flutter-orange rounded-md border border-flutter-orange/50">Flutter Mobile</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700/50">Predictive Modeling</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="services" class="py-20">
-            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">Core <span class="text-cyan-500">Specializations</span></h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">Core <span class="bg-gradient-to-r from-flutter-blue to-flutter-orange bg-clip-text text-transparent">Specializations</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-cyan-500 text-3xl mb-4">⚛️</div>
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-flutter-blue" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-flutter-blue text-3xl mb-4">⚛️</div>
                     <h3 class="text-xl font-bold text-white mb-2">Deep Learning</h3>
                     <p class="text-slate-400 text-sm">Designing and training custom CNNs, RNNs, and Transformers for complex pattern recognition tasks.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-cyan-500 text-3xl mb-4">💬</div>
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-flutter-blue" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-flutter-blue text-3xl mb-4">💬</div>
                     <h3 class="text-xl font-bold text-white mb-2">NLP & RAG</h3>
                     <p class="text-slate-400 text-sm">Implementing Retrieval-Augmented Generation systems and fine-tuning Large Language Models for enterprise data.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-cyan-500 text-3xl mb-4">⚙️</div>
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-flutter-orange" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-flutter-orange text-3xl mb-4">⚙️</div>
                     <h3 class="text-xl font-bold text-white mb-2">MLOps</h3>
                     <p class="text-slate-400 text-sm">Automating model lifecycles. CI/CD for machine learning, containerization, and cloud deployment architecture.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-cyan-500 text-3xl mb-4">🔌</div>
-                    <h3 class="text-xl font-bold text-white mb-2">AI Integration</h3>
-                    <p class="text-slate-400 text-sm">Seamlessly connecting Python-based inference APIs with front-end systems and Flutter mobile applications.</p>
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-flutter-orange" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-flutter-orange text-3xl mb-4">🔌</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Flutter & AI Integration</h3>
+                    <p class="text-slate-400 text-sm">Building cross-platform mobile apps with Flutter, seamlessly integrating Python-based ML inference APIs and deploying production-ready AI solutions.</p>
                 </div>
             </div>
         </section>
 
         <section id="stack" class="py-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div data-aos="fade-right">
-                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-cyan-500 pl-4">Technology Stack</h3>
+                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-flutter-orange pl-4">Technology Stack</h3>
                 <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Python</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">PyTorch</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">TensorFlow</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Pandas</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Scikit-Learn</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">FastAPI</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Docker</span>
-                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300">Git</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-flutter-orange">Python</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-flutter-blue">PyTorch</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-flutter-blue">TensorFlow</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-slate-600">Pandas</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-slate-600">Scikit-Learn</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-flutter-orange">FastAPI</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-flutter-blue">Flutter</span>
+                    <span class="px-4 py-2 glass-card rounded-lg font-mono text-sm text-slate-300 border-l-2 border-slate-600">Docker</span>
                 </div>
             </div>
             <div data-aos="fade-left">
-                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-cyan-500 pl-4">Algorithmic Profiles</h3>
+                <h3 class="text-2xl font-bold mb-6 text-white border-l-4 border-flutter-blue pl-4">Algorithmic Profiles</h3>
                 <div class="grid grid-cols-2 gap-4">
-                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
-                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">Codeforces</span>
-                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    <a href="https://codeforces.com/profile/mr_captrox" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group border-l-2 border-flutter-blue">
+                        <span class="font-semibold text-slate-200 group-hover:text-flutter-orange">Codeforces</span>
+                        <span class="text-slate-500 group-hover:text-flutter-orange transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
-                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
-                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">LeetCode</span>
-                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    <a href="https://leetcode.com" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group border-l-2 border-flutter-orange">
+                        <span class="font-semibold text-slate-200 group-hover:text-flutter-orange">LeetCode</span>
+                        <span class="text-slate-500 group-hover:text-flutter-orange transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
-                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
-                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">HackerRank</span>
-                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    <a href="https://www.hackerrank.com" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group border-l-2 border-flutter-blue">
+                        <span class="font-semibold text-slate-200 group-hover:text-flutter-orange">HackerRank</span>
+                        <span class="text-slate-500 group-hover:text-flutter-orange transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
-                    <a href="#" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group">
-                        <span class="font-semibold text-slate-200 group-hover:text-cyan-400">GeeksforGeeks</span>
-                        <span class="text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+                    <a href="https://www.geeksforgeeks.org" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-between group border-l-2 border-flutter-orange">
+                        <span class="font-semibold text-slate-200 group-hover:text-flutter-orange">GeeksforGeeks</span>
+                        <span class="text-slate-500 group-hover:text-flutter-orange transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="github-stats" class="py-20" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">GitHub <span class="bg-gradient-to-r from-flutter-blue to-flutter-orange bg-clip-text text-transparent">Analytics</span></h2>
+                <p class="text-slate-400">Real-time statistics and contributions.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-6 rounded-2xl overflow-hidden" data-aos="flip-left">
+                    <img src="https://github-readme-stats.vercel.app/api?username=mr-captrox&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&text_color=c9cacc&icon_color=FB8500" alt="GitHub Stats" class="w-full rounded-lg">
+                </div>
+                <div class="glass-card p-6 rounded-2xl overflow-hidden" data-aos="flip-right">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mr-captrox&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&text_color=c9cacc" alt="Top Languages" class="w-full rounded-lg">
                 </div>
             </div>
         </section>
 
         <section id="projects" class="py-20">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Model <span class="text-cyan-500">Deployments</span></h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Model <span class="bg-gradient-to-r from-flutter-blue to-flutter-orange bg-clip-text text-transparent">Deployments</span></h2>
                 <p class="text-slate-400">Selected research implementations and production-ready applications.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-flutter-blue/20 to-slate-800 relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
-                        <div class="absolute w-full h-full bg-cyan-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute w-full h-full bg-flutter-blue/20 group-hover:scale-110 transition-transform duration-500"></div>
                     </div>
                     <div class="p-6 relative z-20 -mt-8 flex-grow">
-                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">PyTorch • Computer Vision</span>
+                        <span class="bg-flutter-blue/30 text-flutter-light text-xs font-mono px-2 py-1 rounded border border-flutter-blue/50">PyTorch • Computer Vision</span>
                         <h3 class="text-xl font-bold text-white mt-3 mb-2">Automated Retina Analysis</h3>
                         <p class="text-sm text-slate-400 mb-4">Deep learning model for multi-class ocular disease recognition through vessel segmentation and feature-level fusion framework.</p>
                         <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
@@ -194,12 +217,12 @@
                 </div>
 
                 <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-flutter-orange/20 to-slate-800 relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
-                        <div class="absolute w-full h-full bg-blue-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute w-full h-full bg-flutter-orange/20 group-hover:scale-110 transition-transform duration-500"></div>
                     </div>
                     <div class="p-6 relative z-20 -mt-8 flex-grow">
-                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">NLP • RAG • FastAPI</span>
+                        <span class="bg-flutter-orange/30 text-flutter-orange text-xs font-mono px-2 py-1 rounded border border-flutter-orange/50">NLP • RAG • FastAPI</span>
                         <h3 class="text-xl font-bold text-white mt-3 mb-2">Enterprise Knowledge Bot</h3>
                         <p class="text-sm text-slate-400 mb-4">Retrieval-Augmented Generation architecture connected to an internal document store, providing hallucination-free answers.</p>
                         <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
@@ -207,14 +230,14 @@
                 </div>
 
                 <div class="glass-card rounded-2xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-flutter-blue/20 via-flutter-orange/20 to-slate-800 relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
-                        <div class="absolute w-full h-full bg-purple-500/20 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute w-full h-full bg-flutter-blue/30 group-hover:scale-110 transition-transform duration-500"></div>
                     </div>
                     <div class="p-6 relative z-20 -mt-8 flex-grow">
-                        <span class="bg-cyan-900/50 text-cyan-400 text-xs font-mono px-2 py-1 rounded border border-cyan-500/20">Flutter • Gemini API</span>
-                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Waste Alert AI Integration</h3>
-                        <p class="text-sm text-slate-400 mb-4">A mobile application leveraging Gemini Pro capabilities to dynamically categorize and provide insights on scanned items.</p>
+                        <span class="bg-flutter-blue/30 text-flutter-light text-xs font-mono px-2 py-1 rounded border border-flutter-blue/50">Flutter • Gemini API • AI</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Waste Alert – AI Classifier</h3>
+                        <p class="text-sm text-slate-400 mb-4">Cross-platform Flutter mobile app with real-time waste categorization using Google Gemini Pro Vision API. Features offline capability and cloud sync.</p>
                         <a href="#" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1 mt-auto">View Source <span>→</span></a>
                     </div>
                 </div>
@@ -223,7 +246,7 @@
 
         <section class="py-20 relative" data-aos="fade-up">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
-            <div class="glass-card p-10 md:p-16 rounded-3xl text-center relative z-10 border-t-4 border-t-cyan-500">
+            <div class="glass-card p-10 md:p-16 rounded-3xl text-center relative z-10 border-t-4 border-t-flutter-orange">
                 <p class="text-xl md:text-3xl text-slate-300 font-light italic leading-relaxed mb-6">
                     "Data is just noise until you build the right architecture to listen to it. I construct systems that turn complexity into clarity."
                 </p>
@@ -240,17 +263,17 @@
             <form action="https://formspree.io/f/xanqgyov" method="POST" class="glass-card p-8 rounded-2xl flex flex-col gap-4">
                 <div>
                     <label class="block text-xs font-mono text-slate-400 mb-1">USER.NAME</label>
-                    <input type="text" name="name" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors">
+                    <input type="text" name="name" required class="w-full bg-slate-900/50 border border-flutter-blue/30 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-flutter-orange transition-colors">
                 </div>
                 <div>
                     <label class="block text-xs font-mono text-slate-400 mb-1">USER.EMAIL</label>
-                    <input type="email" name="email" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors">
+                    <input type="email" name="email" required class="w-full bg-slate-900/50 border border-flutter-blue/30 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-flutter-orange transition-colors">
                 </div>
                 <div>
                     <label class="block text-xs font-mono text-slate-400 mb-1">PAYLOAD.MESSAGE</label>
-                    <textarea name="message" rows="4" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
+                    <textarea name="message" rows="4" required class="w-full bg-slate-900/50 border border-flutter-blue/30 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-flutter-orange transition-colors resize-none"></textarea>
                 </div>
-                <button type="submit" class="mt-2 w-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/50 py-3 rounded-lg font-bold hover:bg-cyan-500 hover:text-slate-950 transition-colors">
+                <button type="submit" class="mt-2 w-full bg-flutter-orange/20 text-flutter-orange border border-flutter-orange/50 py-3 rounded-lg font-bold hover:bg-flutter-orange hover:text-slate-950 transition-colors">
                     EXECUTE POST REQUEST
                 </button>
             </form>
@@ -262,14 +285,14 @@
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-slate-500 text-sm font-mono">© 2026 Md Sourav Oyaj. All rights reserved.</p>
             <div class="flex gap-4">
-                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">GitHub</a>
-                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">LinkedIn</a>
-                <a href="#" class="text-slate-400 hover:text-cyan-400 font-mono text-sm">Codeforces</a>
+                <a href="https://github.com/mr-captrox" target="_blank" class="text-slate-400 hover:text-flutter-orange font-mono text-sm">GitHub</a>
+                <a href="https://linkedin.com/in/md-sourav-oyaj" target="_blank" class="text-slate-400 hover:text-flutter-orange font-mono text-sm">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" class="text-slate-400 hover:text-flutter-orange font-mono text-sm">Twitter</a>
             </div>
         </div>
     </footer>
 
-    <button id="scrollToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center text-cyan-400 opacity-0 transition-opacity z-50 pointer-events-none hover:bg-cyan-500/20 border-cyan-500/30">
+    <button id="scrollToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center text-flutter-orange opacity-0 transition-opacity z-50 pointer-events-none hover:bg-flutter-orange/20 border-flutter-orange/50">
         ↑
     </button>
 
@@ -287,7 +310,7 @@
 
         // 2. Initialize Typed.js for Hero Section
         new Typed('#typed-text', {
-            strings: ['AI/ML ENGINEER', 'DEEP LEARNING RESEARCHER', 'PYTHON DEVELOPER'],
+            strings: ['AI/ML ENGINEER', 'DEEP LEARNING RESEARCHER', 'PYTHON DEVELOPER', 'FLUTTER DEVELOPER'],
             typeSpeed: 50,
             backSpeed: 30,
             backDelay: 1500,
@@ -300,14 +323,14 @@
         particlesJS('particles-js', {
             particles: {
                 number: { value: 60, density: { enable: true, value_area: 800 } },
-                color: { value: '#22d3ee' },
+                color: { value: '#FB8500' },
                 shape: { type: 'circle' },
                 opacity: { value: 0.3, random: false },
                 size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#22d3ee',
+                    color: '#FB8500',
                     opacity: 0.2,
                     width: 1
                 },
